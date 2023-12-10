@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -g -o CMakeFiles/opengl_exploration.dir/src/main.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
+  "output": "CMakeFiles/opengl_exploration.dir/src/main.cpp.o"
+}
+]
