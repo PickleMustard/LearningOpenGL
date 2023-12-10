@@ -6,6 +6,10 @@
 			[
 				{
 					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
@@ -13,6 +17,21 @@
 					},
 					"projectIndex" : 0,
 					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "src/InitHelp",
+					"jsonFile" : "directory-src.InitHelp-Debug-44031ee8d6410b0f330e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/InitHelp",
 					"targetIndexes" : 
 					[
 						0
@@ -25,21 +44,30 @@
 				{
 					"directoryIndexes" : 
 					[
-						0
+						0,
+						1
 					],
 					"name" : "opengl_exploration",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
 			"targets" : 
 			[
 				{
+					"directoryIndex" : 1,
+					"id" : "InitHelp::@37666b112a09a5266904",
+					"jsonFile" : "target-InitHelp-Debug-da9b52bab6d5b38d935b.json",
+					"name" : "InitHelp",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 0,
 					"id" : "opengl_exploration::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opengl_exploration-Debug-da3d0abd8b8ad4ba7860.json",
+					"jsonFile" : "target-opengl_exploration-Debug-3fb377c00d58a15032e4.json",
 					"name" : "opengl_exploration",
 					"projectIndex" : 0
 				}

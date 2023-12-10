@@ -1,7 +1,7 @@
 #include <GL/glew.h>
 #define GLFW_DLL
 #include <GLFW/glfw3.h>
-
+#include "InitHelp/InitializeOpenGL.h"
 #include <iostream>
 
 int main() {
@@ -24,9 +24,9 @@ int main() {
         0.0f, 0.5f, 0.0f,
         0.5f, -0.5f, 0.0f,
         -0.5f, -0.5f, 0.0f,
-        0.7f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
         0.0f, -1.0f, 0.0f,
-        -0.3f, -0.7f, 0.0f
+        -0.5f, -0.5f, 0.0f
     };
 
     if(!glfwInit()){
@@ -57,6 +57,7 @@ int main() {
     //glViewport(0,0,width, height);
 
     GLuint vbo = 0;
+    glhelpers::initalizeVertexBufferObject(vbo, 2, points);
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, 18 * sizeof(float), points, GL_STATIC_DRAW);
