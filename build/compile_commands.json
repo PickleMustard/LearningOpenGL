@@ -1,15 +1,21 @@
 [
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
-  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -g -o CMakeFiles/opengl_exploration.dir/src/main.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -g -o CMakeFiles/opengl_exploration.dir/src/main.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
   "output": "CMakeFiles/opengl_exploration.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
-  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -g -o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -g -o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "output": "CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -g -o src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector2D.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/Vector2D.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/Vector2D.cpp",
+  "output": "src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector2D.cpp.o"
 },
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",

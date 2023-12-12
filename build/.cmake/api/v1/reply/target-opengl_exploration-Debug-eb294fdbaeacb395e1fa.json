@@ -33,19 +33,19 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 12,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 16,
+				"line" : 19,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 8,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
@@ -64,6 +64,10 @@
 				{
 					"backtrace" : 4,
 					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects"
 				}
 			],
 			"language" : "CXX",
@@ -76,6 +80,10 @@
 	],
 	"dependencies" : 
 	[
+		{
+			"backtrace" : 3,
+			"id" : "VectorMathAndObjects::@48d0387db7728c00e7b9"
+		},
 		{
 			"backtrace" : 3,
 			"id" : "InitHelp::@37666b112a09a5266904"
@@ -100,7 +108,12 @@
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp",
+				"backtrace" : 2,
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects",
 				"role" : "libraries"
 			},
 			{
@@ -121,6 +134,11 @@
 			{
 				"backtrace" : 3,
 				"fragment" : "src/InitHelp/libInitHelp.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "src/VectorMathAndObjects/libVectorMathAndObjects.a",
 				"role" : "libraries"
 			}
 		],
