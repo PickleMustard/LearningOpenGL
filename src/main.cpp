@@ -1,4 +1,5 @@
 #include <GL/glew.h>
+#include <cstdlib>
 #define GLFW_DLL
 #define GL_LOG_FILE "gl.log"
 #include <GLFW/glfw3.h>
@@ -9,6 +10,7 @@
 
 #include "InitHelp/InitializeOpenGL.h"
 #include "VectorMathAndObjects/Vector2D.h"
+#include "InitHelp/PolygonInputFileParser.h"
 
 bool restart_gl_log() {
     FILE* file = fopen(GL_LOG_FILE, "w");
@@ -74,20 +76,35 @@ void glfw_error_callback(int error, const char* description) {
     gl_log_err("GLFW ERROR: code %i msg: %s\n", error, description);
 }
 
+
 int main(int argc, char* argv[]) {
+    if(argc < 4){
+        printf("The format should be 2 Shader files, Shape File, Degrees of Rotation");
+        return 0;
+    }
     //Declarations
-    int height, width, num_of_inputs;
+    int height, width, num_of_inputs, deg_of_rotation;
     GLFWwindow *window;
     std::ifstream shader_file_input;
     std::string vertex_shader_string, fragment_shader_string;
 
+    VectorSpace2D::Polygon2D p = pif::readPolygonInputFile(argv[3]);
+
+    printf("Polygon 1st vertex is (%f, %f, %f)\n", p.p_points[0].x, p.p_points[0].y, p.p_points[0].z);
+    printf("Polygon 1st vertex is (%f, %f, %f)\n", p.p_points[1].x, p.p_points[1].y, p.p_points[1].z);
+    printf("Polygon 1st vertex is (%f, %f, %f)\n", p.p_points[2].x, p.p_points[2].y, p.p_points[2].z);
+    printf("Polygon 1st vertex is (%f, %f, %f)\n", p.p_points[3].x, p.p_points[3].y, p.p_points[3].z);
+
     float points[] = {
-        0.0f, 0.5f, 0.5f,
+        0.0f, 0.7f, 0.0f,
         0.5f, -0.5f, 0.0f,
         -0.5f, -0.5f, 0.0f,
+        0.5f, 0.5f, 0.0f,
         0.5f, -0.5f, 0.0f,
-        0.0f, -1.0f, 0.0f,
-        -0.5f, -0.5f, 0.0f
+        0.0f, 0.7f, 0.0f,
+        -0.5f, 0.5f, 0.0f,
+        0.0f, 0.7f, 0.0f,
+        -0.5f,-0.5f, 0.0f
     };
 
     VectorSpace2D::Triangle2D triangle {VectorSpace2D::Pointf2D{0.0f, 0.5f, 0.5f},
@@ -97,38 +114,28 @@ int main(int argc, char* argv[]) {
     VectorSpace2D::Pointf2D square_vert[] = {{-0.5f, -0.5f, 0.0f}, {0.5f, -0.5f, 0.0f}, {0.5f, 0.5f, 0.0f}, {-0.5f, 0.5f, 0.0f}};
 
     VectorSpace2D::Polygon2D square {4, {}, square_vert};
-    square.triangles = VectorSpace2D::triangularizePolygon(square);
+    printf("Number of vertices: %i\n", p.num_of_points);
+    p.triangles = VectorSpace2D::triangularizePolygon(p);
 
-    printf("Size of triangles %lu\n", square.triangles.size());
+    //printf("Size of triangles %lu\n", square.triangles.size());
 
     std::vector<VectorSpace2D::Triangle2D> tris {triangle};
 
-    std::vector<float> new_points = VectorSpace2D::createTriangleArray(square.triangles);
-    printf("triangles size %lu\n", square.triangles.size());
-    /*for(VectorSpace2D::Triangle2D t : square.triangles) {
-        printf("Triangle Point 0: x, y, z | %f, %f, %f\n", t.t_points[0].x, t.t_points[0].y, t.t_points[0].z);
-        printf("Triangle Point 1: x, y, z | %f, %f, %f\n", t.t_points[1].x, t.t_points[1].y, t.t_points[1].z);
-        printf("Triangle Point 2: x, y, z | %f, %f, %f\n", t.t_points[2].x, t.t_points[2].y, t.t_points[2].z);
-    }*/
+    std::vector<float> new_points = VectorSpace2D::createTriangleArray(p.triangles);
 
-    for(float f: new_points) {
-        printf("Printing point: %f\n", f);
+    printf("Number of points: %lu\n", new_points.size());
+    for(int i = 0; i < new_points.size(); i+=3){
+        printf("Point (%f, %f, %f)\n", new_points[i], new_points[i+1], new_points[i+2]);
     }
     num_of_inputs = new_points.size();
     float* new_float_points = &new_points[0];
-    for(float f : new_points) {
-        printf("%f ", f);
-    }
-    printf(" | End of float list\n");
 
-    if(argc < 2){
-        printf("Needs at least 2 shader file inputs.");
-        return 0;
-    }
     //Assert the clearing and opening of the log
     assert(restart_gl_log());
     gl_log("Starting GLFW\n%s\n", glfwGetVersionString());
     glfwSetErrorCallback(glfw_error_callback);
+
+    deg_of_rotation = atof(argv[4]);
 
     //Parse the shader files
     vertex_shader_string = glhelpers::parseShaderFile(argv[1]);
@@ -174,7 +181,8 @@ int main(int argc, char* argv[]) {
     //glViewport(0,0,width, height);
 
     GLuint vbo = 0;
-    glhelpers::initalizeVertexBufferObject(vbo, 2, &new_points[0]);
+    glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+    //glhelpers::initalizeVertexBufferObject(vbo, 2, points);
 
     GLuint vao = 0, vao2 = 0;
     glhelpers::initializeVertexArrayObject(vao, vbo);
@@ -205,6 +213,7 @@ int main(int argc, char* argv[]) {
     glAttachShader(shader_programme, vs);
     glLinkProgram(shader_programme);
 
+
     //Changes the color of the background
     glClearColor(0.6f, 0.6f, 0.8f, 1.0f);
 
@@ -217,6 +226,13 @@ int main(int argc, char* argv[]) {
         glfwPollEvents();
 
         glfwSwapBuffers(window);
+        int state = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT);
+        if(state == GLFW_PRESS) {
+            //printf("rotating\n");
+            VectorSpace2D::rotateShape(deg_of_rotation, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
 
         /*glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glUseProgram(shader_programme);

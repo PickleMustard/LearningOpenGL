@@ -19,6 +19,12 @@
 },
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -g -o src/InitHelp/CMakeFiles/InitHelp.dir/PolygonInputFileParser.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/PolygonInputFileParser.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp/PolygonInputFileParser.cpp",
+  "output": "src/InitHelp/CMakeFiles/InitHelp.dir/PolygonInputFileParser.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
   "command": "/usr/lib64/ccache/g++ -g -o src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "output": "src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o"

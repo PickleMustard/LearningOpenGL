@@ -1,0 +1,33 @@
+starting
+Gotten String: -0.5f|-0.5f|0.0f
+Found substring: -0.5f at pos 5
+Gotten String: -0.5f|0.0f
+Found substring: -0.5f at pos 5
+Gotten String: 0.5f|-0.5f|0.0f
+Found substring: 0.5f at pos 4
+Gotten String: -0.5f|0.0f
+Found substring: -0.5f at pos 5
+Gotten String: 0.5f|0.5f|0.0f
+Found substring: 0.5f at pos 4
+Gotten String: 0.5f|0.0f
+Found substring: 0.5f at pos 4
+Gotten String: -0.5f|0.5f|0.0f
+Found substring: -0.5f at pos 5
+Gotten String: 0.5f|0.0f
+Found substring: 0.5f at pos 4
+completed
+Triangle Input Array Size: 2
+Final Shader file: #version 400
+in vec3 vp;
+void main() {
+    gl_Position = vec4(vp.x, vp.y, vp.z - 1.0, 1.0);
+}
+
+Final Shader file: #version 400
+out vec4 frag_color;
+void main() {
+    frag_color = vec4(0.5, 0.6, 0.5, 1.0);
+}
+
+Renderer: NVIDIA GeForce RTX 2080/PCIe/SSE2
+OpenGL version supported 3.2.0 NVIDIA 545.29.06

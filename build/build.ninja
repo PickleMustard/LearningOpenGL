@@ -180,6 +180,12 @@ build src/VectorMathAndObjects/rebuild_cache: phony src/VectorMathAndObjects/CMa
 
 build cmake_object_order_depends_target_InitHelp: phony || src/InitHelp/CMakeFiles/InitHelp.dir
 
+build src/InitHelp/CMakeFiles/InitHelp.dir/PolygonInputFileParser.cpp.o: CXX_COMPILER__InitHelp_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/PolygonInputFileParser.cpp || cmake_object_order_depends_target_InitHelp
+  DEP_FILE = src/InitHelp/CMakeFiles/InitHelp.dir/PolygonInputFileParser.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = src/InitHelp/CMakeFiles/InitHelp.dir
+  OBJECT_FILE_DIR = src/InitHelp/CMakeFiles/InitHelp.dir
+
 build src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o: CXX_COMPILER__InitHelp_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp || cmake_object_order_depends_target_InitHelp
   DEP_FILE = src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o.d
   FLAGS = -g
@@ -194,7 +200,7 @@ build src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o: CXX_COMPILER_
 #############################################
 # Link the static library src/InitHelp/libInitHelp.a
 
-build src/InitHelp/libInitHelp.a: CXX_STATIC_LIBRARY_LINKER__InitHelp_Debug src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o
+build src/InitHelp/libInitHelp.a: CXX_STATIC_LIBRARY_LINKER__InitHelp_Debug src/InitHelp/CMakeFiles/InitHelp.dir/PolygonInputFileParser.cpp.o src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src/InitHelp/CMakeFiles/InitHelp.dir
   POST_BUILD = :

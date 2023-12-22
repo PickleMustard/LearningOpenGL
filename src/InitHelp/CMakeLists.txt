@@ -1,1 +1,1 @@
-add_library(InitHelp InitializeOpenGL.cpp InitializeOpenGL.h)
+add_library(InitHelp PolygonInputFileParser.cpp PolygonInputFileParser.h InitializeOpenGL.cpp InitializeOpenGL.h)

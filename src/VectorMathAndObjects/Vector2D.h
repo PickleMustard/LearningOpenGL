@@ -27,12 +27,15 @@ namespace VectorSpace2D {
         Pointf2D* p_points {};
     };
 
+    void rotateShape(float angle, float points[], int num_of_points);
     float area2(const Pointf2D& a, const Pointf2D& b, const Pointf2D& c);
     bool insideTriangle(const Pointf2D& a, const Pointf2D& b, const Pointf2D& c, const Pointf2D& p);
     float angle(const Pointf2D& a, const Pointf2D& b, const Pointf2D& c);
-    bool flippingDesirable(int iP, int iQ, int iR, int iS, const Pointf2D vertices[]);
-    bool anyFlipping(const std::vector<Triangle2D>& tris);
+    bool flippingDesirable(Pointf2D iP, Pointf2D iQ, Pointf2D iR, Pointf2D iS);
+    void flipTriangles(std::vector<Triangle2D> tris, Pointf2D iP, Pointf2D iQ, Pointf2D iR, Pointf2D iS, int i, int j);
+    bool anyFlipping(std::vector<Triangle2D>* tris);
     std::vector<Triangle2D> triangularizePolygon(const Polygon2D& pol);
+    bool clockwise(const Pointf2D p[], int length);
     std::vector<float> createTriangleArray(const std::vector<Triangle2D>& tris);
 }
 
