@@ -157,7 +157,7 @@ int main(int argc, char* argv[]) {
     //Anti-Aliasing
     //glfwWindowHint(GLFW_SAMPLES, 4);
 
-    window = glfwCreateWindow(640, 480, "Window", NULL, NULL);
+    window = glfwCreateWindow(640, 480, "Window", glfwGetPrimaryMonitor(), NULL);
     if(!window) {
         fprintf(stderr, "ERROR: could not open window with GLFW3\n");
         glfwTerminate();
