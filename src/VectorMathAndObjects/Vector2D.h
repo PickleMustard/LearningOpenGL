@@ -28,6 +28,9 @@ namespace VectorSpace2D {
     };
 
     void rotateShape(float angle, float points[], int num_of_points);
+    void scaleShape(float x_scaling_factor, float y_scaling_factor, float points[], int num_of_points);
+    void shearShape(float shearing_factor, bool shearing_axis, float points[], int num_of_points);
+    void translateShape(float x_translation_factor, float y_translation_factor, float points[], int num_of_points);
     float area2(const Pointf2D& a, const Pointf2D& b, const Pointf2D& c);
     bool insideTriangle(const Pointf2D& a, const Pointf2D& b, const Pointf2D& c, const Pointf2D& p);
     float angle(const Pointf2D& a, const Pointf2D& b, const Pointf2D& c);

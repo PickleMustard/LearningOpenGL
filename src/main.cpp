@@ -226,14 +226,83 @@ int main(int argc, char* argv[]) {
         glfwPollEvents();
 
         glfwSwapBuffers(window);
-        int state = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT);
-        if(state == GLFW_PRESS) {
+        int mouse_state = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT);
+        int k_state = glfwGetKey(window, GLFW_KEY_K), s_state = glfwGetKey(window, GLFW_KEY_S),
+            j_state = glfwGetKey(window, GLFW_KEY_J), d_state = glfwGetKey(window, GLFW_KEY_D);
+        int u_state = glfwGetKey(window, GLFW_KEY_U), w_state = glfwGetKey(window, GLFW_KEY_W),
+            i_state = glfwGetKey(window, GLFW_KEY_I), e_state = glfwGetKey(window, GLFW_KEY_E);
+        int up_state = glfwGetKey(window, GLFW_KEY_UP), left_state = glfwGetKey(window, GLFW_KEY_LEFT),
+            down_state = glfwGetKey(window, GLFW_KEY_DOWN), right_state = glfwGetKey(window, GLFW_KEY_RIGHT);
+
+        if(mouse_state == GLFW_PRESS) {
             //printf("rotating\n");
             VectorSpace2D::rotateShape(deg_of_rotation, &new_points[0], new_points.size());
             glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
             glhelpers::initializeVertexArrayObject(vao, vbo);
         }
+        if(k_state == GLFW_PRESS) {
+            VectorSpace2D::scaleShape(2, 1, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
 
+        if(s_state == GLFW_PRESS) {
+            VectorSpace2D::scaleShape(.5, 1, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+        if(j_state == GLFW_PRESS) {
+            VectorSpace2D::scaleShape(1, 2, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+        if(d_state == GLFW_PRESS) {
+            VectorSpace2D::scaleShape(1, .5, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+        if(u_state == GLFW_PRESS) {
+            VectorSpace2D::shearShape(2, 1, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+
+        if(w_state == GLFW_PRESS) {
+            VectorSpace2D::shearShape(-2, 1, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+        if(i_state == GLFW_PRESS) {
+            VectorSpace2D::shearShape(2, 1, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+        if(e_state == GLFW_PRESS) {
+            VectorSpace2D::shearShape(-2, 0, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+        if(up_state == GLFW_PRESS) {
+            VectorSpace2D::translateShape(0, .1, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+
+        if(left_state == GLFW_PRESS) {
+            VectorSpace2D::translateShape(-.1, 0, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+        if(down_state == GLFW_PRESS) {
+            VectorSpace2D::translateShape(0, -.1, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
+        if(right_state == GLFW_PRESS) {
+            VectorSpace2D::translateShape(.1, 0, &new_points[0], new_points.size());
+            glhelpers::initalizeVertexBufferObject(vbo, p.triangles.size(), &new_points[0]);
+            glhelpers::initializeVertexArrayObject(vao, vbo);
+        }
         /*glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glUseProgram(shader_programme);
         glBindVertexArray(vao2);

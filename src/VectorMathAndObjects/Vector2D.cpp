@@ -100,6 +100,29 @@ void VectorSpace2D::rotateShape(float angle, float *points, int num_of_points){
     }
 }
 
+void VectorSpace2D::scaleShape(float x_scaling_factor, float y_scaling_factor, float *points, int num_of_points) {
+    for(int i = 0; i < num_of_points; i+=3) {
+        points[i] *= x_scaling_factor;
+        points[i+1] *= y_scaling_factor;
+    }
+}
+
+void VectorSpace2D::shearShape(float shearing_factor, bool shearing_axis, float *points, int num_of_points) {
+    float x_shear = shearing_factor * shearing_axis, y_shear = shearing_factor * (!shearing_axis);
+    float original_point_x, original_point_y;
+    for(int i = 0; i < num_of_points; i+=3){
+        original_point_x = points[i], original_point_y = points[i+1];
+        points[i] = original_point_x + (original_point_y * y_shear);
+        points[i+1] = original_point_y + (original_point_x * x_shear);
+    }
+}
+
+void VectorSpace2D::translateShape(float x_translation_factor, float y_translation_factor, float *points, int num_of_points){
+    for(int i = 0; i < num_of_points; i+=3){
+        points[i] += x_translation_factor;
+        points[i+1] += y_translation_factor;
+    }
+}
 std::vector<VectorSpace2D::Triangle2D> VectorSpace2D::triangularizePolygon(const Polygon2D &pol){
     std::vector<VectorSpace2D::Triangle2D> tr {};
     //printf("tr size: %lu\n", tr.size());
