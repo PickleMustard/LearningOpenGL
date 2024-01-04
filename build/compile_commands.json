@@ -19,6 +19,12 @@
 },
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -g -o src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector3D.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/Vector3D.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/Vector3D.cpp",
+  "output": "src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector3D.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
   "command": "/usr/lib64/ccache/g++ -g -o src/InitHelp/CMakeFiles/InitHelp.dir/PolygonInputFileParser.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/PolygonInputFileParser.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp/PolygonInputFileParser.cpp",
   "output": "src/InitHelp/CMakeFiles/InitHelp.dir/PolygonInputFileParser.cpp.o"

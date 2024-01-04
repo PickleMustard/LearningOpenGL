@@ -123,9 +123,15 @@ void VectorSpace2D::translateShape(float x_translation_factor, float y_translati
         points[i+1] += y_translation_factor;
     }
 }
+
+void VectorSpace2D::translateShapeZ(float z_translation_factor, float *points, int num_of_points) {
+    for (int i = 0; i < num_of_points; i+=3) {
+        points[i+2] += z_translation_factor;
+    }
+}
+
 std::vector<VectorSpace2D::Triangle2D> VectorSpace2D::triangularizePolygon(const Polygon2D &pol){
     std::vector<VectorSpace2D::Triangle2D> tr {};
-    //printf("tr size: %lu\n", tr.size());
     int next[pol.num_of_points];
     for(int i = 0; i < pol.num_of_points; i++) {
         next[i] = (i + 1) % pol.num_of_points;
@@ -197,14 +203,14 @@ std::vector<float> VectorSpace2D::createTriangleArray(const std::vector<Triangle
     printf("Triangle Input Array Size: %lu\n", tris.size());
     for(Triangle2D t : tris){
         if(!clockwise(t.t_points, 3)) {
-            for(int i = 0; i < 3; i++) {
+            for(int i = 2; i >= 0; i--) {
                 printf("Clockwise\n");
                 triangle_point_list.push_back(t.t_points[i].x);
                 triangle_point_list.push_back(t.t_points[i].y);
                 triangle_point_list.push_back(t.t_points[i].z);
             }
         } else {
-            for(int i = 2; i >= 0; i--) {
+            for(int i = 0; i < 3; i++) {
                 printf("Not Clockwise\n");
                 triangle_point_list.push_back(t.t_points[i].x);
                 triangle_point_list.push_back(t.t_points[i].y);

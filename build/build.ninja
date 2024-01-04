@@ -126,6 +126,12 @@ build src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector2D.cpp.
   OBJECT_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
   OBJECT_FILE_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
 
+build src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector3D.cpp.o: CXX_COMPILER__VectorMathAndObjects_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/Vector3D.cpp || cmake_object_order_depends_target_VectorMathAndObjects
+  DEP_FILE = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector3D.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
+  OBJECT_FILE_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target VectorMathAndObjects
@@ -134,7 +140,7 @@ build src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector2D.cpp.
 #############################################
 # Link the static library src/VectorMathAndObjects/libVectorMathAndObjects.a
 
-build src/VectorMathAndObjects/libVectorMathAndObjects.a: CXX_STATIC_LIBRARY_LINKER__VectorMathAndObjects_Debug src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector2D.cpp.o
+build src/VectorMathAndObjects/libVectorMathAndObjects.a: CXX_STATIC_LIBRARY_LINKER__VectorMathAndObjects_Debug src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector2D.cpp.o src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector3D.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
   POST_BUILD = :
