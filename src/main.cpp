@@ -14,6 +14,9 @@
 #include "VectorMathAndObjects/Vector2D.h"
 #include "InitHelp/PolygonInputFileParser.h"
 #include "Vector3D.h"
+#include "GLObjects/EBO.h"
+#include "GLObjects/VAO.h"
+#include "GLObjects/VBO.h"
 
 bool restart_gl_log() {
     FILE* file = fopen(GL_LOG_FILE, "w");
@@ -97,7 +100,6 @@ int main(int argc, char* argv[]) {
         return -1;
     }
 
-    glEnable(GL_DEPTH);
 
     //Declarations
     int height, width, num_of_inputs, deg_of_rotation, num_of_monitors;
@@ -110,12 +112,7 @@ int main(int argc, char* argv[]) {
 
     VectorSpace2D::Polygon2D p = pif::readPolygonInputFile(argv[3]);
 
-    //printf("Polygon 1st vertex is (%f, %f, %f)\n", p.p_points[0].x, p.p_points[0].y, p.p_points[0].z);
-    //printf("Polygon 1st vertex is (%f, %f, %f)\n", p.p_points[1].x, p.p_points[1].y, p.p_points[1].z);
-    //printf("Polygon 1st vertex is (%f, %f, %f)\n", p.p_points[2].x, p.p_points[2].y, p.p_points[2].z);
-    //printf("Polygon 1st vertex is (%f, %f, %f)\n", p.p_points[3].x, p.p_points[3].y, p.p_points[3].z);
-
-    float points[] = {
+    GLfloat points[] = {
         0.0f, 0.7f, -5.0f,
         0.5f, -0.5f, -5.0f,
         -0.5f, -0.5f, -5.0f,
@@ -131,49 +128,49 @@ int main(int argc, char* argv[]) {
                                                         VectorSpace3D::Point3D{1.0f,1.0f,-1.0f,0.0f}, VectorSpace3D::Point3D{-1.0f,1.0f,-1.0f,0.0f},
                                                         VectorSpace3D::Point3D{-1.0f,-1.0f,1.0f,0.0f}, VectorSpace3D::Point3D{1.0f,-1.0f,1.0f,0.0f},
                                                         VectorSpace3D::Point3D{1.0f,1.0f,1.0f,0.0f}, VectorSpace3D::Point3D{-1.0f,1.0f,1.0f,0.0f}};
-    std::vector<VectorSpace3D::Face3D> object_faces{};
-    VectorSpace3D::Face3D fac{}, fac2{};
-    fac.points.push_back(object_vertices[0]);
-    fac.points.push_back(object_vertices[1]);
-    fac.points.push_back(object_vertices[5]);
-    fac.points.push_back(object_vertices[4]);
+    std::vector<std::vector<int>> object_faces{};
+    std::vector<int> fac{}, fac2{};
+    fac.push_back(0);
+    fac.push_back(1);
+    fac.push_back(5);
+    fac.push_back(4);
     object_faces.push_back(fac);
-    fac.points.clear();
-    fac.points.push_back(object_vertices[1]);
-    fac.points.push_back(object_vertices[2]);
-    fac.points.push_back(object_vertices[6]);
-    fac.points.push_back(object_vertices[5]);
+    fac.clear();
+    fac.push_back(1);
+    fac.push_back(2);
+    fac.push_back(6);
+    fac.push_back(5);
     object_faces.push_back(fac);
-    fac.points.clear();
-    fac.points.push_back(object_vertices[2]);
-    fac.points.push_back(object_vertices[3]);
-    fac.points.push_back(object_vertices[7]);
-    fac.points.push_back(object_vertices[6]);
+    fac.clear();
+    fac.push_back(2);
+    fac.push_back(3);
+    fac.push_back(7);
+    fac.push_back(6);
     object_faces.push_back(fac);
-    fac.points.clear();
-    fac.points.push_back(object_vertices[3]);
-    fac.points.push_back(object_vertices[0]);
-    fac.points.push_back(object_vertices[4]);
-    fac.points.push_back(object_vertices[7]);
+    fac.clear();
+    fac.push_back(3);
+    fac.push_back(0);
+    fac.push_back(4);
+    fac.push_back(7);
     object_faces.push_back(fac);
-    fac.points.clear();
-    fac.points.push_back(object_vertices[4]);
-    fac.points.push_back(object_vertices[5]);
-    fac.points.push_back(object_vertices[6]);
-    fac.points.push_back(object_vertices[7]);
+    fac.clear();
+    fac.push_back(4);
+    fac.push_back(5);
+    fac.push_back(6);
+    fac.push_back(7);
     object_faces.push_back(fac);
-    fac.points.clear();
-    fac.points.push_back(object_vertices[3]);
-    fac.points.push_back(object_vertices[2]);
-    fac.points.push_back(object_vertices[1]);
-    fac.points.push_back(object_vertices[0]);
+    fac.clear();
+    fac.push_back(3);
+    fac.push_back(2);
+    fac.push_back(1);
+    fac.push_back(0);
     object_faces.push_back(fac);
 
 
-    VectorSpace3D::World_Object obj{1,1,1, object_faces, VectorSpace3D::Point3D{0.5f, 0.5f, 0.5f, 0.0f}};
+    VectorSpace3D::World_Object obj{1,1,1, object_vertices, object_faces, VectorSpace3D::Point3D{0.0f, 0.0f, 0.0f, 0.0f}};
 
-    obj.setEyePointFaces(obj.convertToEyeCoord());
-    obj.setScreenCoordinateFaces(obj.convertToScreenCoord(std::max(height, width)));
+    obj.convertToEyeCoord();
+    obj.convertToScreenCoord(std::max(height, width));
     printf("Triangularizing\n");
     obj.triangularizeObject();
     obj.printEyeSpace();
@@ -194,7 +191,11 @@ int main(int argc, char* argv[]) {
     std::vector<VectorSpace2D::Triangle2D> tris {triangle};
 
     //std::vector<float> new_points = VectorSpace2D::createTriangleArray(p.triangles);
-    std::vector<float> new_points = obj.createTriangleArray();
+    //Redo the floats as GLFloats, combine into 1 array
+    std::vector<GLfloat> new_points = obj.createTriangleArray();
+    std::vector<GLfloat> normal_points = obj.createNormalArray(new_points);
+    std::vector<GLfloat> color_points = obj.createColorArray(new_points);
+    std::vector<GLuint> indices = obj.createIndexArray();
 
     printf("Number of points: %lu\n", new_points.size());
     for(int i = 0; i < new_points.size(); i+=3){
@@ -213,10 +214,10 @@ int main(int argc, char* argv[]) {
     fragment_shader_string = glhelpers::parseShaderFile(argv[2]);
     const char* fragment_shader = fragment_shader_string.c_str();
 
-    //Set OpenGL Version
+    //Set OpenGL Version 3.3
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    //Only using the CORE functionality of OpenGL, no need for compatability with previous versions
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     //Anti-Aliasing
@@ -240,23 +241,64 @@ int main(int argc, char* argv[]) {
     printf("OpenGL version supported %s\n", version);
 
     glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LESS);
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
-    glFrontFace(GL_CCW);
+    //glDepthFunc(GL_LESS);
+    //glEnable(GL_CULL_FACE);
+    //glCullFace(GL_BACK);
+    //glFrontFace(GL_CCW);
 
     glfwGetFramebufferSize(window ,&width, &height);
     //glViewport(0,0,width, height);
+    //
 
-    GLuint vbo = 0;
-    glhelpers::initalizeVertexBufferObject(vbo, obj.getNumTriangles(), &new_points[0]);
+    VAO object_Vao;
+    object_Vao.Bind();
+
+    VBO object_Vbo(&new_points[0], sizeof(points));
+
+    EBO object_Ebo(&indices[0], sizeof(indices));
+    //
+    //
+    /*
+    //The VAO must be generated before the VBO
+    GLuint vao = 0, snao = 0, colorbufferao = 0;
+    GLuint vbo = 0, snbo = 0, colorbuffer = 0;
+    //Generate VAO
+    glGenVertexArrays(1, &vao);
+    //Generate the buffer array bound to vbo
+    glGenBuffers(1, &vbo);
+
+    //Bind it
+    glBindVertexArray(vao);
+
+    //Bind the vertex buffer to the OpenGL Vertex Buffer
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, (9 * obj.getNumTriangles()) * sizeof(float), points, GL_STATIC_DRAW);
+
+    //0 define the layout for attribute # 0.
+    //3 manes the variables are vec3 of type GL_FLOAT
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float) , 0);
+    glEnableVertexAttribArray(0);
+    glBindVertexArray(0);
+    //glhelpers::initalizeVertexBufferObject(vbo, obj.getNumTriangles(), &new_points[0]);
+    glhelpers::initalizeVertexBufferObject(snbo, obj.getNumTriangles(), &normal_points[0]);
+    glhelpers::initalizeVertexBufferObject(colorbuffer, obj.getNumTriangles(), &color_points[0]);
+
+    //glGenBuffers(1, &colorbuffer);
+    //glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+    //glBufferData(GL_ARRAY_BUFFER, sizeof(g_color_buffer_data), g_color_buffer_data, GL_STATIC_DRAW);
     //glhelpers::initalizeVertexBufferObject(vbo, 3, &new_points[0]);
     //glhelpers::initalizeVertexBufferObject(vbo, 2, points);
 
-    GLuint vao = 0, vao2 = 0;
     glhelpers::initializeVertexArrayObject(vao, vbo);
-    glhelpers::initializeVertexArrayObject(vao2, vbo);
-
+    glhelpers::initializeNormalArrayObject(snao, snbo);
+    //Generate VAO
+    glGenVertexArrays(1, &colorbufferao);
+    //Bind it
+    glBindVertexArray(colorbufferao);
+    glEnableVertexAttribArray(2);
+    glBindBuffer(GL_ARRAY_BUFFER,colorbuffer);
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    */
     GLuint vs = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vs, 1, &vertex_shader, NULL);
     glCompileShader(vs);
@@ -278,9 +320,25 @@ int main(int argc, char* argv[]) {
         return false;
     }
     GLuint shader_programme = glCreateProgram();
+    //Attach the shaders to the created program
     glAttachShader(shader_programme, fs);
     glAttachShader(shader_programme, vs);
+    //Links the created shader program into the gl API
     glLinkProgram(shader_programme);
+
+    object_Vao.LinkAttrib(object_Vbo, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
+    object_Vao.LinkAttrib(object_Vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+
+    object_Vao.Unbind();
+    object_Vbo.Unbind();
+    object_Ebo.Unbind();
+
+    //Get the uniform value "Scale" from the vertex shader
+    GLuint uniID = glGetUniformLocation(shader_programme, "scale");
+
+    //std::vector<
+    printf("Size of indicies: %lu ", sizeof(indices));
+
 
 
     //Changes the color of the background
@@ -290,12 +348,13 @@ int main(int argc, char* argv[]) {
     while(!glfwWindowShouldClose(window)){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glUseProgram(shader_programme);
-        glBindVertexArray(vao);
+        glUniform1f(uniID, 0.0f);
+        object_Vao.Bind();
         glDrawArrays(GL_TRIANGLES, 0, num_of_inputs);
-
+        //glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, 0);
+        glfwSwapBuffers(window);
         glfwPollEvents();
 
-        glfwSwapBuffers(window);
         int mouse_state = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT);
         int k_state = glfwGetKey(window, GLFW_KEY_K), s_state = glfwGetKey(window, GLFW_KEY_S),
             j_state = glfwGetKey(window, GLFW_KEY_J), d_state = glfwGetKey(window, GLFW_KEY_D);
@@ -306,7 +365,7 @@ int main(int argc, char* argv[]) {
         int back_state = glfwGetKey(window, GLFW_KEY_2), forward_state = glfwGetKey(window, GLFW_KEY_2);
         int close_state = glfwGetKey(window, GLFW_KEY_ESCAPE);
 
-
+        /*
         if(mouse_state == GLFW_PRESS) {
             //printf("rotating\n");
             VectorSpace2D::rotateShape(deg_of_rotation, &new_points[0], new_points.size());
@@ -398,6 +457,13 @@ int main(int argc, char* argv[]) {
         glfwPollEvents();
         glfwSwapBuffers(window);*/
     }
+
+    object_Vao.Delete();
+    object_Vbo.Delete();
+
+    //glDeleteVertexArrays(1, &vao);
+    //glDeleteBuffers(1, &vbo);
+    glDeleteProgram(shader_programme);
 
     glfwTerminate();
     return 0;

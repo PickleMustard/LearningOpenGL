@@ -7,3 +7,6 @@
 /home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp/CMakeFiles/InitHelp.dir
 /home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp/CMakeFiles/edit_cache.dir
 /home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp/CMakeFiles/rebuild_cache.dir
+/home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects/CMakeFiles/GLObjects.dir
+/home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects/CMakeFiles/edit_cache.dir
+/home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects/CMakeFiles/rebuild_cache.dir

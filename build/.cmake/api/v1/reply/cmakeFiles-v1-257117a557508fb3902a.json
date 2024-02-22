@@ -131,6 +131,9 @@
 		},
 		{
 			"path" : "src/InitHelp/CMakeLists.txt"
+		},
+		{
+			"path" : "src/GLObjects/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

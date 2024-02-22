@@ -5,15 +5,18 @@ add_executable(opengl_exploration src/main.cpp src/InitHelp/InitializeOpenGL.cpp
 
 add_subdirectory(src/VectorMathAndObjects)
 add_subdirectory(src/InitHelp)
+add_subdirectory(src/GLObjects)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC src/InitHelp
     PUBLIC src/VectorMathAndObjects
+    PUBLIC src/GLObjects
 )
 
 target_link_directories(${PROJECT_NAME}
     PRIVATE src/InitHelp
     PRIVATE src/VectorMathAndObjects
+    PRIVATE src/GLObjects
 )
 
-target_link_libraries(${PROJECT_NAME} glfw GL GLEW InitHelp VectorMathAndObjects)
+target_link_libraries(${PROJECT_NAME} glfw GL GLEW InitHelp VectorMathAndObjects GLObjects)

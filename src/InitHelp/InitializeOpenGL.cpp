@@ -9,11 +9,12 @@
 #include <string.h>
 #include <fstream>
 
-void glhelpers::initalizeVertexBufferObject(GLuint& vbo, int num_of_triangles, float points[]){
+void glhelpers::initalizeVertexBufferObject(GLuint& vbo, int num_of_triangles, const float points[]){
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, (9 * num_of_triangles) * sizeof(float), points, GL_STATIC_DRAW);
 }
+
 
 void glhelpers::initializeVertexArrayObject(GLuint& vao, GLuint &vbo) {
     //Generate VAO
@@ -24,9 +25,20 @@ void glhelpers::initializeVertexArrayObject(GLuint& vao, GLuint &vbo) {
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     //0 define the layout for attribute # 0.
     //3 manes the variables are vec3 of type GL_FLOAT
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0 , NULL);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0 , 0);
 }
 
+void glhelpers::initializeNormalArrayObject(GLuint& snao, GLuint &snbo) {
+    //Generate VAO
+    glGenVertexArrays(1, &snao);
+    //Bind it
+    glBindVertexArray(snao);
+    glEnableVertexAttribArray(1);
+    glBindBuffer(GL_ARRAY_BUFFER, snbo);
+    //0 define the layout for attribute # 0.
+    //3 manes the variables are vec3 of type GL_FLOAT
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0 , 0);
+}
 std::string glhelpers::parseShaderFile(const char* filename){
     std::string parsed_shader_information;
     std::ifstream fd(filename, std::ifstream::in);

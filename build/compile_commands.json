@@ -1,13 +1,13 @@
 [
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
-  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -g -o CMakeFiles/opengl_exploration.dir/src/main.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -g -o CMakeFiles/opengl_exploration.dir/src/main.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
   "output": "CMakeFiles/opengl_exploration.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
-  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -g -o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -g -o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "output": "CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o"
 },
@@ -34,5 +34,23 @@
   "command": "/usr/lib64/ccache/g++ -g -o src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "output": "src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -g -o src/GLObjects/CMakeFiles/GLObjects.dir/EBO.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/EBO.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/GLObjects/EBO.cpp",
+  "output": "src/GLObjects/CMakeFiles/GLObjects.dir/EBO.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -g -o src/GLObjects/CMakeFiles/GLObjects.dir/VAO.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/VAO.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/GLObjects/VAO.cpp",
+  "output": "src/GLObjects/CMakeFiles/GLObjects.dir/VAO.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -g -o src/GLObjects/CMakeFiles/GLObjects.dir/VBO.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/VBO.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/GLObjects/VBO.cpp",
+  "output": "src/GLObjects/CMakeFiles/GLObjects.dir/VBO.cpp.o"
 }
 ]

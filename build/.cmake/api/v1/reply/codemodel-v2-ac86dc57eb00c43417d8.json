@@ -9,7 +9,8 @@
 					"childIndexes" : 
 					[
 						1,
-						2
+						2,
+						3
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -20,7 +21,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						2
+						3
 					]
 				},
 				{
@@ -35,7 +36,7 @@
 					"source" : "src/VectorMathAndObjects",
 					"targetIndexes" : 
 					[
-						1
+						2
 					]
 				},
 				{
@@ -50,6 +51,21 @@
 					"source" : "src/InitHelp",
 					"targetIndexes" : 
 					[
+						1
+					]
+				},
+				{
+					"build" : "src/GLObjects",
+					"jsonFile" : "directory-src.GLObjects-Debug-292679cb1836d6ca2010.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/GLObjects",
+					"targetIndexes" : 
+					[
 						0
 					]
 				}
@@ -62,19 +78,28 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					],
 					"name" : "opengl_exploration",
 					"targetIndexes" : 
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 3,
+					"id" : "GLObjects::@72c1c9d69cb92aa44416",
+					"jsonFile" : "target-GLObjects-Debug-538b9613fba88afa4833.json",
+					"name" : "GLObjects",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 2,
 					"id" : "InitHelp::@37666b112a09a5266904",
@@ -92,7 +117,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "opengl_exploration::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opengl_exploration-Debug-eb294fdbaeacb395e1fa.json",
+					"jsonFile" : "target-opengl_exploration-Debug-19efdb5b3960c34bf277.json",
 					"name" : "opengl_exploration",
 					"projectIndex" : 0
 				}

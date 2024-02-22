@@ -28,57 +28,59 @@ float VectorSpace3D::angle(const Point3D &a, const Point3D &b, const Point3D &c)
 }
 
 
-bool VectorSpace3D::flippingDesirable(VectorSpace3D::Point3D iP, VectorSpace3D::Point3D iQ, VectorSpace3D::Point3D iR, VectorSpace3D::Point3D iS){
-    VectorSpace3D::Point3D vP = iP, vQ = iQ, vR = iR, vS = iS;
-    float angle1 = VectorSpace3D::angle(vP, vQ, vR), angle2 = VectorSpace3D::angle(vR, vS, vP);
+bool VectorSpace3D::flippingDesirable(int iP, int iQ, int iR, int iS, const std::vector<VectorSpace3D::Point3D> vertices){
+    int vP = iP, vQ = iQ, vR = iR, vS = iS;
+    float angle1 = VectorSpace3D::angle(vertices[vP], vertices[vQ], vertices[vR]), angle2 = VectorSpace3D::angle(vertices[vR], vertices[vS], vertices[vP]);
     printf("First Angle: %.8f | Second Angle: %.8f | Addition: %.8f | PI: %.8f\n", angle1, angle2, angle1 + angle2, M_PI);
     return ((angle1 + angle2 - .00001) > M_PI) && (!(angle1 == angle2));
 }
 
-void VectorSpace3D::flipTriangles(std::vector<VectorSpace3D::Triangle3D> tris, VectorSpace3D::Point3D iP, VectorSpace3D::Point3D iQ, VectorSpace3D::Point3D iR, VectorSpace3D::Point3D iS, int i, int j) {
+//Flips around the vertices stored in triangles i and j
+void VectorSpace3D::flipTriangles(std::vector<VectorSpace3D::Triangle3D> tris, int iP, int iQ, int iR, int iS, int i, int j) {
     tris[i] = VectorSpace3D::Triangle3D{iP, iQ, iS};
     tris[j] = VectorSpace3D::Triangle3D{iS, iQ, iR};
 }
 
 
-bool VectorSpace3D::anyFlipping(std::vector<Triangle3D>* tris){
+bool VectorSpace3D::anyFlipping(std::vector<Triangle3D>* tris, const std::vector<VectorSpace3D::Point3D> vertices){
     if((*tris).size() < 2) {
         return false;
     }
     for(int i = 0; i < (*tris).size(); i++) {
-        VectorSpace3D::Point3D t[] {(*tris)[i].points[0], (*tris)[i].points[1], (*tris)[i].points[2]};
+        int t[] {(*tris)[i].vertices[0], (*tris)[i].vertices[1], (*tris)[i].vertices[2]};
         for(int j = i+1; j < (*tris).size(); j++) {
-            VectorSpace3D::Point3D u[] {(*tris)[j].points[0], (*tris)[j].points[1], (*tris)[j].points[2]};
+            int u[] {(*tris)[j].vertices[0], (*tris)[j].vertices[1], (*tris)[j].vertices[2]};
             //Look for a common edge of triangles t and u
             for (int h = 0; h < 3; h++) {
                 for (int k = 0; k < 3; k++) {
-                    if((t[h].x == u[k].x && t[h].y == u[k].y && t[h].z == u[k].z) &&
-                            (t[(h+1)%3].x == u[(k+2)%3].x && t[(h+1)%3].y == u[(k+2)%3].y && t[(h+1)%3].z == u[(k+2)%3].z)) {
-                        VectorSpace3D::Point3D iP = t[(h+1)%3], iQ = t[(h+2)%3],
+                    if((vertices[t[h]].x == vertices[u[k]].x && vertices[t[h]].y == vertices[u[k]].y && vertices[t[h]].z == vertices[u[k]].z) &&
+                            (vertices[t[(h+1)%3]].x == vertices[u[(k+2)%3]].x && vertices[t[(h+1)%3]].y == vertices[u[(k+2)%3]].y && vertices[t[(h+1)%3]].z == vertices[u[(k+2)%3]].z)) {
+                        int iP = t[(h+1)%3], iQ = t[(h+2)%3],
                                                 iR = t[h], iS = u[(k+1)%3];
-                        if(flippingDesirable(iP, iQ, iR, iS)){
+                        if(flippingDesirable(iP, iQ, iR, iS, vertices)){
                             printf("Flipping\n");
                             printf("Edges: %i and %ii\n", h, k);
                             printf("Triangle i: (%f, %f, %f), (%f, %f, %f), (%f, %f, %f)\n",
-                                    (*tris)[i].points[0].x, (*tris)[i].points[0].y, (*tris)[i].points[0].z,
-                                    (*tris)[i].points[1].x, (*tris)[i].points[1].y, (*tris)[i].points[1].z,
-                                    (*tris)[i].points[2].x, (*tris)[i].points[2].y, (*tris)[i].points[2].z);
+                                    vertices[(*tris)[i].vertices[0]].x, vertices[(*tris)[i].vertices[0]].y, vertices[(*tris)[i].vertices[0]].z,
+                                    vertices[(*tris)[i].vertices[1]].x, vertices[(*tris)[i].vertices[1]].y, vertices[(*tris)[i].vertices[1]].z,
+                                    vertices[(*tris)[i].vertices[2]].x, vertices[(*tris)[i].vertices[2]].y, vertices[(*tris)[i].vertices[2]].z);
                             printf("Triangle j: (%f, %f, %f), (%f, %f, %f), (%f, %f, %f)\n",
-                                    (*tris)[j].points[0].x, (*tris)[j].points[0].y, (*tris)[j].points[0].z,
-                                    (*tris)[j].points[1].x, (*tris)[j].points[1].y, (*tris)[j].points[1].z,
-                                    (*tris)[j].points[2].x, (*tris)[j].points[2].y, (*tris)[j].points[2].z);
+                                    vertices[(*tris)[j].vertices[0]].x, vertices[(*tris)[j].vertices[0]].y, vertices[(*tris)[j].vertices[0]].z,
+                                    vertices[(*tris)[j].vertices[1]].x, vertices[(*tris)[j].vertices[1]].y, vertices[(*tris)[j].vertices[1]].z,
+                                    vertices[(*tris)[j].vertices[2]].x, vertices[(*tris)[j].vertices[2]].y, vertices[(*tris)[j].vertices[2]].z);
                             //VectorSpace3D::flipTriangles(tris,iP, iQ, iR, iS, i, j);
                             (*tris)[i] = VectorSpace3D::Triangle3D{iP, iQ, iS};
                             (*tris)[j] = VectorSpace3D::Triangle3D{iS, iQ, iR};
 
                             printf("Triangle i: (%f, %f, %f), (%f, %f, %f), (%f, %f, %f)\n",
-                                    (*tris)[i].points[0].x, (*tris)[i].points[0].y, (*tris)[i].points[0].z,
-                                    (*tris)[i].points[1].x, (*tris)[i].points[1].y, (*tris)[i].points[1].z,
-                                    (*tris)[i].points[2].x, (*tris)[i].points[2].y, (*tris)[i].points[2].z);
+                                    vertices[(*tris)[i].vertices[0]].x, vertices[(*tris)[i].vertices[0]].y, vertices[(*tris)[i].vertices[0]].z,
+                                    vertices[(*tris)[i].vertices[1]].x, vertices[(*tris)[i].vertices[1]].y, vertices[(*tris)[i].vertices[1]].z,
+                                    vertices[(*tris)[i].vertices[2]].x, vertices[(*tris)[i].vertices[2]].y, vertices[(*tris)[i].vertices[2]].z);
                             printf("Triangle j: (%f, %f, %f), (%f, %f, %f), (%f, %f, %f)\n",
-                                    (*tris)[j].points[0].x, (*tris)[j].points[0].y, (*tris)[j].points[0].z,
-                                    (*tris)[j].points[1].x, (*tris)[j].points[1].y, (*tris)[j].points[1].z,
-                                    (*tris)[j].points[2].x, (*tris)[j].points[2].y, (*tris)[j].points[2].z);
+                                    vertices[(*tris)[j].vertices[0]].x, vertices[(*tris)[j].vertices[0]].y, vertices[(*tris)[j].vertices[0]].z,
+                                    vertices[(*tris)[j].vertices[1]].x, vertices[(*tris)[j].vertices[1]].y, vertices[(*tris)[j].vertices[1]].z,
+                                    vertices[(*tris)[j].vertices[2]].x, vertices[(*tris)[j].vertices[2]].y, vertices[(*tris)[j].vertices[2]].z);
+
 
                             return true;
                         }
@@ -90,10 +92,15 @@ bool VectorSpace3D::anyFlipping(std::vector<Triangle3D>* tris){
     return false;
 }
 
+//Get the non-normalized magnitude of the vector between two points in world space
 float vectorMagnitude(VectorSpace3D::Point3D v1, VectorSpace3D::Point3D v2) {
     return sqrtf(powf(v1.x - v2.x, 2) + powf(v1.y - v2.y,2) + powf(v1.z - v2.z, 2));
 }
 
+
+//Get the size of the object by comparing each vertex with each other
+//The greatest distance between verticies is used as the size of the object in world space
+//Keeps the indicies of the vertexes that are furthest from each other
 void VectorSpace3D::World_Object::setObjSize(){
     int vertex1, vertex2;
     float size = vectorMagnitude(vertices[0], vertices[1]);
@@ -112,14 +119,16 @@ void VectorSpace3D::World_Object::setObjSize(){
     size_v2 = vertex2;
 }
 
-VectorSpace3D::World_Object::World_Object(float x, float y, float z, const std::vector<Face3D>& shape_faces, const VectorSpace3D::Point3D& viewpoint){
+//The constructor will take the following:
+//An x, y, and z coordinate defining the central point of the object in world space
+//A vector list of the vertexes that construct the object
+//A vector list of arrays of integers defining the indices of the vertexes that construct each face
+//The viewpoint of the camera within world space
+VectorSpace3D::World_Object::World_Object(float x, float y, float z, const std::vector<VectorSpace3D::Point3D> vertex_list,
+        const std::vector<std::vector<int>> shape_faces, const VectorSpace3D::Point3D& viewpoint){
     object_origin = {x, y, z};
-    faces = shape_faces;
-    for(int i = 0; i < faces.size(); i++) {
-        for(int j = 0; j < faces[i].points.size(); j++) {
-            vertices.push_back(faces[i].points[j]);
-        }
-    }
+    input_faces = shape_faces;
+    vertices = vertex_list;
     viewpoint_E = std::move(viewpoint);
     setObjSize();
 }
@@ -136,106 +145,82 @@ VectorSpace3D::Point3D VectorSpace3D::World_Object::getCameraViewpoint() const {
 void VectorSpace3D::World_Object::print() const {
     std::cout << "Location: (" << object_origin.x << ", " <<
         object_origin.y << ", " << object_origin.z << ") " <<
-        " with " << faces.size() << " number of faces." << std::endl;
+        " with " << input_faces.size() << " number of faces." << std::endl;
 }
 
 void VectorSpace3D::World_Object::printEyeSpace() const {
-    std::cout << "Number of points: " << eye_point_faces[0].points.size() << " | Number of triangles: " <<
-        eye_point_faces[0].triangles.size() << "." << std::endl;
-}
-
-void VectorSpace3D::World_Object::setEyePointFaces(const std::vector<VectorSpace3D::Face3D>& epfs) {
-    eye_point_faces = std::move(epfs);
-}
-
-void VectorSpace3D::World_Object::setScreenCoordinateFaces(const std::vector<VectorSpace3D::Face3D>& scfs) {
-    screen_coordinates = std::move(scfs);
+    std::cout << "Number of points: " << eye_point_vertices.size() << std::endl;
 }
 
 int VectorSpace3D::World_Object::getNumTriangles() const {
     int num_of_triangles = 0;
-    for(int i = 0; i < screen_coordinates.size(); i++){
-        num_of_triangles += screen_coordinates[i].triangles.size();
+    for(int i = 0; i < triangularized_faces.size(); i++){
+        num_of_triangles += triangularized_faces[i].triangles.size();
     }
     return num_of_triangles;
 }
 
-std::vector<VectorSpace3D::Face3D> VectorSpace3D::World_Object::convertToEyeCoord(){
+void VectorSpace3D::World_Object::convertToEyeCoord(){
     //Need to multiply the value of every vertex within the faces by the transformation matrix
     //The transformation matrix is composed of a translation of the origin from O to view point E
     //Rotation about the z-axis to make x-axis perpendicular to plane OE
     //Rotation about the x-axis to make the z-axis collinear with the line OE
-    std::vector<Point3D> moved_points;
-    std::vector<Face3D> moved_faces;
-    printf("Herery");
     float rho = sqrtf((viewpoint_E.x * viewpoint_E.x) + (viewpoint_E.y * viewpoint_E.y) +
                     (viewpoint_E.z * viewpoint_E.z));
     float theta = atan2f(viewpoint_E.y, viewpoint_E.x);
     float phi = acos(viewpoint_E.z / rho);
-    for(VectorSpace3D::Face3D fc : faces) {
-        moved_points.clear();
-        for(VectorSpace3D::Point3D point : fc.points){
-            float x_prime = (point.x * -sinf(theta)) + (point.y * cosf(theta));
-            float y_prime = (point.x * -cosf(phi) * cosf(theta)) + (point.y * -cosf(phi) * sinf(theta)) +
-                (point.z * sinf(phi));
-            float z_prime = (point.x * sinf(phi) * cosf(theta)) + (point.y * sinf(phi) * sinf(theta)) +
-                (point.z * cosf(phi)) + (point.w * -rho);
-            float w_prime = point.w;
-            moved_points.push_back(VectorSpace3D::Point3D{x_prime, y_prime, z_prime, w_prime});
-        }
-        moved_faces.push_back(VectorSpace3D::Face3D{moved_points});
+    for(VectorSpace3D::Point3D fc : vertices) {
+        float x_prime = (fc.x * -sinf(theta)) + (fc.y * cosf(theta));
+        float y_prime = (fc.x * -cosf(phi) * cosf(theta)) + (fc.y * -cosf(phi) * sinf(theta)) +
+            (fc.z * sinf(phi));
+        float z_prime = (fc.x * sinf(phi) * cosf(theta)) + (fc.y * sinf(phi) * sinf(theta)) +
+            (fc.z * cosf(phi)) + (fc.w * -rho);
+        float w_prime = fc.w;
+        eye_point_vertices.push_back(VectorSpace3D::Point3D{x_prime, y_prime, z_prime, w_prime});
     }
-
-    return moved_faces;
 }
 
-std::vector<VectorSpace3D::Face3D> VectorSpace3D::World_Object::convertToScreenCoord(float screenMinMax) {
+void VectorSpace3D::World_Object::convertToScreenCoord(float screenMinMax) {
     //Choose the plane Q such that the plane perpendicular to -z includes Q
     //For each vertex in each face that has been converted to an eye coord,
     //Calculate the screen coordinates through dividing the x&y by z and multiplying by -Z of camera location
     float rho = sqrtf((viewpoint_E.x * viewpoint_E.x) + (viewpoint_E.y * viewpoint_E.y) +
             (viewpoint_E.z * viewpoint_E.z));
     float d = rho * screenMinMax / obj_size;
-    std::vector<Point3D> calculated_points;
-    std::vector<Face3D> screen_faces;
-    printf("Here");
-    for(VectorSpace3D::Face3D fc : eye_point_faces){
-        calculated_points.clear();
-        for(VectorSpace3D::Point3D point : fc.points) {
-            float x_coord = (point.x / point.z) * -d;
-            float y_coord = (point.y / point.z) * -d;
-            calculated_points.push_back(VectorSpace3D::Point3D{x_coord, y_coord, point.z, point.w});
-        }
-        screen_faces.push_back((VectorSpace3D::Face3D{calculated_points}));
+    //Go through each vertex and convert it to the screen coordinates
+    for(VectorSpace3D::Point3D vertex : eye_point_vertices) {
+        float x_coord = (vertex.x / vertex.z) * -d;
+        float y_coord = (vertex.y / vertex.z) * -d;
+        screen_point_vertices.push_back(VectorSpace3D::Point3D{x_coord, y_coord, vertex.z, vertex.w});
     }
-    return screen_faces;
 }
 
 
-
+//Convert a world object into a vector of 3D triangles
+//
 void VectorSpace3D::World_Object::triangularizeObject(){
-    printf("Size of eye_point_faces: %lu\n", screen_coordinates.size());
-    printf("Num of points eye_point_faces: %lu\n", screen_coordinates[0].points.size());
-    for(int l = 0; l < screen_coordinates.size(); ++l){
+    //Go through each of the faces in screen coordinates
+    for(int l = 0; l < input_faces.size(); ++l) {
         std::vector<VectorSpace3D::Triangle3D> tr {};
-        int next[screen_coordinates[l].points.size()];
-        for(int i = 0; i < screen_coordinates[l].points.size(); i++) {
-            next[i] = (i + 1) % screen_coordinates[l].points.size();
+        //Construct an array of indices corresponding to the next vertex index in screen coordinates
+        int next[input_faces[l].size()];
+        for(int i = 0; i < input_faces[l].size(); i++) {
+            next[i] = (i + 1) % input_faces[l].size();
         }
-        for (int k = 0; k < screen_coordinates[l].points.size() - 2; k++){
-            VectorSpace3D::Point3D a, b, c;
+        for (int k = 0; k < input_faces[l].size() - 2; k++){
+            int a, b, c;
             bool triangleFound = false;
             int iA = 0, iB = 0, iC = 0, count = 0, nA = 0, nB = 0, nC = 0, j = 0, nj = 0;
-            while(!triangleFound && ++count < screen_coordinates[l].points.size()){
-                printf("Triagilng\n");
+            while(!triangleFound && ++count < input_faces[l].size()){
+                printf("Triangling\n");
                 iB = next[iA], iC = next[iB];
                 nA = abs(iA);
                 nB = abs(iB);
                 nC = abs(iC);
-                a = screen_coordinates[l].points[nA];
-                b = screen_coordinates[l].points[nB];
-                c = screen_coordinates[l].points[nC];
-                if(VectorSpace3D::area2(a, b, c) >= 0) {
+                a = input_faces[l][nA];
+                b = input_faces[l][nB];
+                c = input_faces[l][nC];
+                if(VectorSpace3D::area2(vertices[a], vertices[b], vertices[c]) >= 0) {
                     //Edges AB and BC; diagonal AC
                     //Test to see if no other polygon vertex
                     //lies within ABC;
@@ -243,13 +228,13 @@ void VectorSpace3D::World_Object::triangularizeObject(){
                     nj = abs(j);
                     while (j != iA &&
                             (nj == nA || nj == nB || nj == nC) ||
-                            !insideTriangle(a, b, c, screen_coordinates[l].points[nj])) {
+                            !insideTriangle(vertices[a], vertices[b], vertices[c], vertices[input_faces[l][nj]])) {
                         printf("Inside Triangle ((%f, %f, %f), (%f,%f,%f), (%f,%f,%f))  & (%f,%f,%f): %i\n",
-                                a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z,
-                                screen_coordinates[l].points[nj].x,
-                                screen_coordinates[l].points[nj].y,
-                                screen_coordinates[l].points[nj].z,
-                                insideTriangle(a,b,c,screen_coordinates[l].points[nj]));
+                                vertices[a].x, vertices[a].y, vertices[a].z, vertices[b].x, vertices[b].y, vertices[b].z, vertices[c].x, vertices[c].y, vertices[c].z,
+                                vertices[input_faces[l][nj]].x,
+                                vertices[input_faces[l][nj]].y,
+                                vertices[input_faces[l][nj]].z,
+                                insideTriangle(vertices[a], vertices[b], vertices[c], vertices[input_faces[l][nj]]));
                         printf("j: %i | iA: %i | nj: %i | nA: %i | nB: %i | nC: %i\n", j, iA, nj, nA, nB, nC);
                         j = next[j];
                         nj = abs(j);
@@ -263,17 +248,17 @@ void VectorSpace3D::World_Object::triangularizeObject(){
                 iA = next[iA];
             }
 
-            if(count == screen_coordinates[l].points.size()){
+            if(count == input_faces[l].size()){
                 printf("ERROR: Not a simple polygon or vertex sequence not counter-clockwise\n");
             }
         }
         printf("Flipping\n");
-        while (anyFlipping(&tr));
+        while (anyFlipping(&tr, vertices));
         printf("Finished\n");
-        screen_coordinates[l].triangles.swap(tr);
-        printf("Fac Triangles Size after swap: %lu\n", screen_coordinates[l].triangles.size());
+        triangularized_faces.push_back(VectorSpace3D::Face3D {tr});
+        printf("Fac Triangles Size after swap: %lu\n", input_faces[l].size());
     }
-    printf("Faces Triangles after loop: %lu\n", screen_coordinates[0].triangles.size());
+    printf("Faces Triangles after loop: %i\n", getNumTriangles());
 }
 
 
@@ -295,31 +280,80 @@ bool VectorSpace3D::clockwise(const Point3D p[], int length){
     return false;
 }
 
-std::vector<float> VectorSpace3D::World_Object::createTriangleArray(){
-    std::vector<float> triangle_point_list{};
-    printf("Number of faces: %lu\n", screen_coordinates.size());
-    printf("Number of vertices on face 1: %lu\n", screen_coordinates[0].points.size());
-    printf("Number of triangles on face 1: %lu\n", screen_coordinates[0].triangles.size());
-    for(Face3D fac: screen_coordinates){
+std::vector<GLuint> VectorSpace3D::World_Object::createIndexArray() {
+    std::vector<GLuint> index_array{};
+    for(Face3D fac: triangularized_faces) {
+        for(Triangle3D t: fac.triangles) {
+            index_array.push_back(t.vertices[0]);
+            index_array.push_back(t.vertices[1]);
+            index_array.push_back(t.vertices[2]);
+        }
+    }
+    return index_array;
+}
+
+std::vector<GLfloat> VectorSpace3D::World_Object::createTriangleArray(){
+    std::vector<GLfloat> triangle_point_list{};
+    printf("Number of faces: %lu\n", triangularized_faces.size());
+    printf("Number of triangles on face 1: %lu\n", triangularized_faces[0].triangles.size());
+    for(Face3D fac: triangularized_faces){
         printf("Triangle Input Array Size: %lu\n", fac.triangles.size());
         for(Triangle3D t : fac.triangles){
-            if(!clockwise(t.points, 3)) {
+            Point3D p[] = {vertices[t.vertices[0]], vertices[t.vertices[1]], vertices[t.vertices[2]]};
+            if(!clockwise(p, 3)) {
                 for(int i = 2; i >= 0; i--) {
                     printf("Clockwise\n");
-                    triangle_point_list.push_back(t.points[i].x);
-                    triangle_point_list.push_back(t.points[i].y);
-                    triangle_point_list.push_back(t.points[i].z);
+                    triangle_point_list.push_back(vertices[t.vertices[i]].x);
+                    triangle_point_list.push_back(vertices[t.vertices[i]].y);
+                    triangle_point_list.push_back(vertices[t.vertices[i]].z);
+                    triangle_point_list.push_back(0.8f);
+                    triangle_point_list.push_back(0.3f);
+                    triangle_point_list.push_back(0.02f);
                 }
             } else {
                 for(int i = 0; i < 3; i++) {
                     printf("Not Clockwise\n");
-                    triangle_point_list.push_back(t.points[i].x);
-                    triangle_point_list.push_back(t.points[i].y);
-                    triangle_point_list.push_back(t.points[i].z);
+                    triangle_point_list.push_back(vertices[t.vertices[i]].x);
+                    triangle_point_list.push_back(vertices[t.vertices[i]].y);
+                    triangle_point_list.push_back(vertices[t.vertices[i]].z);
+                    triangle_point_list.push_back(0.8f);
+                    triangle_point_list.push_back(0.3f);
+                    triangle_point_list.push_back(0.02f);
                 }
             }
         }
     }
     printf("Triangle Point List Size b4 return: %lu\n", triangle_point_list.size());
     return triangle_point_list;
+}
+
+
+std::vector<GLfloat> VectorSpace3D::World_Object::createNormalArray(const std::vector<float> point_list) {
+    std::vector<float> normal_point_list{};
+    float normX = 0, normY = 0, normZ = 0;
+    for(int i = 0; i < point_list.size(); i+=9) {
+        normX = (point_list[4] - point_list[1]) * (point_list[8] - point_list[5]) - (point_list[5]-point_list[2]) * (point_list[7] - point_list[4]);
+        normY = (point_list[5] - point_list[2]) * (point_list[6] - point_list[3]) - (point_list[3]-point_list[0]) * (point_list[8] - point_list[5]);
+        normZ = (point_list[3] - point_list[0]) * (point_list[7] - point_list[4]) - (point_list[4]-point_list[1]) * (point_list[6] - point_list[3]);
+        normal_point_list.push_back(normX);
+        normal_point_list.push_back(normY);
+        normal_point_list.push_back(normZ);
+    }
+
+    return normal_point_list;
+
+}
+
+std::vector<GLfloat> VectorSpace3D::World_Object::createColorArray(const std::vector<float> point_list) {
+    std::vector<float> color_point_list{};
+    float r_value = 0, g_value = 0, b_value = 0;
+    for(int i = 0; i < point_list.size(); i+=9){
+        r_value = i;
+        g_value = i;
+        b_value = i;
+        color_point_list.push_back(r_value);
+        color_point_list.push_back(g_value);
+        color_point_list.push_back(b_value);
+    }
+    return color_point_list;
 }
