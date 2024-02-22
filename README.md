@@ -7,7 +7,7 @@ I am trying to minimize my use of existing libraries as I want to force myself t
 As such, I am avoiding using libraries that implement vectors, matrices, linear algebra, or anything else that hide away the math behind a blackbox.
 In future, going back through and comparing what I build to the OpenGL GLM library might help to bridge gaps in understanding.
 
-###1'st Attempt At Rendering
+##1'st Attempt At Rendering
 Following the transformation matrices in "Computer Graphics for Java Programmers," I've created a library called VectorMathAndObjects that is supposed to
 create an object with a list of vertices and a list of faces comprised of vertex indices. From there, it should convert the faces into the best triangles
 and transform the vertices 1st to viewing space than to clip-space. I've encountered issues transitioning from 2D to 3D in that I can get something to render
@@ -22,3 +22,6 @@ all of the processing of the matrix math per vertex was passed to the GPU throug
 3. Reconfigure the clip-space transformation to be column-major format.
 4. Pass the transformation matrix for eye-point and clip-space into the vertex shader to allow delegating of the heavy matrix math to the more
 optimal GPU.
+
+###For Future Reference:
+The library VectorMathAndObjects will be deprecated but still kept in the repository. It serves as a good reference point for what not to do.
