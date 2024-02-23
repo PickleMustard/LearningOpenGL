@@ -1,13 +1,13 @@
 [
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
-  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -g -o CMakeFiles/opengl_exploration.dir/src/main.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -I/home/picklemustard/Documents/cpp_open_gl/src/LML -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects -g -o CMakeFiles/opengl_exploration.dir/src/main.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/main.cpp",
   "output": "CMakeFiles/opengl_exploration.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
-  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -g -o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -I/home/picklemustard/Documents/cpp_open_gl/src/LML -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects -g -o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp",
   "output": "CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o"
 },
@@ -52,5 +52,29 @@
   "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -g -o src/GLObjects/CMakeFiles/GLObjects.dir/VBO.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/VBO.cpp",
   "file": "/home/picklemustard/Documents/cpp_open_gl/src/GLObjects/VBO.cpp",
   "output": "src/GLObjects/CMakeFiles/GLObjects.dir/VBO.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -DLML_EXPORTS -I/home/picklemustard/Documents/cpp_open_gl/src/LML -g -fPIC -o src/LML/CMakeFiles/LML.dir/matrix.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/LML/matrix.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/LML/matrix.cpp",
+  "output": "src/LML/CMakeFiles/LML.dir/matrix.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -DLML_EXPORTS -I/home/picklemustard/Documents/cpp_open_gl/src/LML -g -fPIC -o src/LML/CMakeFiles/LML.dir/vector.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/LML/vector.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/LML/vector.cpp",
+  "output": "src/LML/CMakeFiles/LML.dir/vector.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -DLML_EXPORTS -I/home/picklemustard/Documents/cpp_open_gl/src/LML -g -fPIC -o src/LML/CMakeFiles/LML.dir/matrix_transformations.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/LML/matrix_transformations.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/LML/matrix_transformations.cpp",
+  "output": "src/LML/CMakeFiles/LML.dir/matrix_transformations.cpp.o"
+},
+{
+  "directory": "/home/picklemustard/Documents/cpp_open_gl/build",
+  "command": "/usr/lib64/ccache/g++ -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects -g -o src/3DObjects/CMakeFiles/3DObjects.dir/camera.cpp.o -c /home/picklemustard/Documents/cpp_open_gl/src/3DObjects/camera.cpp",
+  "file": "/home/picklemustard/Documents/cpp_open_gl/src/3DObjects/camera.cpp",
+  "output": "src/3DObjects/CMakeFiles/3DObjects.dir/camera.cpp.o"
 }
 ]

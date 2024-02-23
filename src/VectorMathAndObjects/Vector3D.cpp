@@ -11,12 +11,33 @@ float VectorSpace3D::area2 (const Point3D& a, const Point3D& b, const Point3D& c
     return (a.x - c.x) * (b.y-c.y) - (a.y-c.y) * (b.x-c.x);
 }
 
-bool VectorSpace3D::insideTriangle(const Point3D &a, const Point3D &b, const Point3D &c, const Point3D &p){
-    return VectorSpace3D::area2(a,b, p) >= 0 &&
-        VectorSpace3D::area2(b, c, p) >= 0 &&
-        VectorSpace3D::area2(c, a, p) >= 0;
+float VectorSpace3D::area3(const Point3D &a, const Point3D &b, const Point3D &c, const Point3D& dir){
+    return dot( cross(b-a, c-b), dir);
 }
 
+VectorSpace3D::Point3D VectorSpace3D::cross(const Point3D &a, const Point3D &b){
+    return Point3D{(a.y * b.z) - (a.z*b.y), (a.z*b.x) - (a.x*b.z), (a.x*b.y) - (a.y*b.x), 0.0f};
+}
+
+GLfloat VectorSpace3D::dot(const Point3D &a, const Point3D &b){
+    return a.x*b.x + a.y*b.y + a.z*b.z;
+}
+
+VectorSpace3D::Point3D VectorSpace3D::operator-(const Point3D &a, const Point3D &b){
+    return Point3D{a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w};
+}
+
+bool VectorSpace3D::insideTriangle(const Point3D &a, const Point3D &b, const Point3D &c, const Point3D &p){
+    return VectorSpace3D::area3(a,b, p, Point3D{1.0f, 0.0f, 0.0f, 0.0f}) >= 0 &&
+        VectorSpace3D::area3(b, c, p, Point3D{1.0f, 0.0f, 0.0f, 0.0f}) >= 0 &&
+        VectorSpace3D::area3(c, a, p, Point3D{1.0f, 0.0f, 0.0f, 0.0f}) >= 0 &&
+        VectorSpace3D::area3(a,b, p, Point3D{0.0f, 1.0f, 0.0f, 0.0f}) >= 0 &&
+        VectorSpace3D::area3(b, c, p, Point3D{0.0f, 1.0f, 0.0f, 0.0f}) >= 0 &&
+        VectorSpace3D::area3(c, a, p, Point3D{0.0f, 1.0f, 0.0f, 0.0f}) >= 0 &&
+        VectorSpace3D::area3(a,b, p, Point3D{0.0f, 0.0f, 1.0f, 0.0f}) >= 0 &&
+        VectorSpace3D::area3(b, c, p, Point3D{0.0f, 0.0f, 1.0f, 0.0f}) >= 0 &&
+        VectorSpace3D::area3(c, a, p, Point3D{0.0f, 0.0f, 1.0f, 0.0f}) >= 0;
+        }
 float VectorSpace3D::angle(const Point3D &a, const Point3D &b, const Point3D &c){
     float xBA = a.x - b.x, yBA = a.y - b.y,
           xBC = c.x - b.x, yBC = c.y - b.y,
@@ -200,7 +221,7 @@ void VectorSpace3D::World_Object::convertToScreenCoord(float screenMinMax) {
 //
 void VectorSpace3D::World_Object::triangularizeObject(){
     //Go through each of the faces in screen coordinates
-    for(int l = 0; l < input_faces.size(); ++l) {
+    for(int l = 0; l < input_faces.size(); l++) {
         std::vector<VectorSpace3D::Triangle3D> tr {};
         //Construct an array of indices corresponding to the next vertex index in screen coordinates
         int next[input_faces[l].size()];
@@ -208,39 +229,52 @@ void VectorSpace3D::World_Object::triangularizeObject(){
             next[i] = (i + 1) % input_faces[l].size();
         }
         for (int k = 0; k < input_faces[l].size() - 2; k++){
-            int a, b, c;
+            VectorSpace3D::Point3D a, b, c;
             bool triangleFound = false;
             int iA = 0, iB = 0, iC = 0, count = 0, nA = 0, nB = 0, nC = 0, j = 0, nj = 0;
-            while(!triangleFound && ++count < input_faces[l].size()){
+            while(!triangleFound && count++ < input_faces[l].size()){
                 printf("Triangling\n");
                 iB = next[iA], iC = next[iB];
-                nA = abs(iA);
-                nB = abs(iB);
-                nC = abs(iC);
-                a = input_faces[l][nA];
-                b = input_faces[l][nB];
-                c = input_faces[l][nC];
-                if(VectorSpace3D::area2(vertices[a], vertices[b], vertices[c]) >= 0) {
+                nA = abs(input_faces[l][iA]);
+                nB = abs(input_faces[l][iB]);
+                nC = abs(input_faces[l][iC]);
+                a = vertices[nA];
+                b = vertices[nB];
+                c = vertices[nC];
+                if(VectorSpace3D::area3(a, b, c, Point3D{1.0f, 0.0f, 0.0f, 0.0f}) >= 0 &&
+                        VectorSpace3D::area3(a, b, c, Point3D{0.0f, 1.0f, 0.0f, 0.0f}) >= 0 &&
+                        VectorSpace3D::area3(a, b, c, Point3D{0.0f, 0.0f, 1.0f, 0.0f}) >= 0) {
                     //Edges AB and BC; diagonal AC
                     //Test to see if no other polygon vertex
                     //lies within ABC;
                     j = next[iC];
-                    nj = abs(j);
+                    nj = abs(input_faces[l][j]);
+                    printf("iA: %i | j: %i\n", iA, j);
+                    printf("nj: %i | nA: %i | nB: %i | nC: %i\n", nj, nA, nB, nC);
+                    printf("Inside Triangle ((%f, %f, %f), (%f,%f,%f), (%f,%f,%f))  & (%f,%f,%f): %i\n",
+                                a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z,
+                                vertices[nj].x,
+                                vertices[nj].y,
+                                vertices[nj].z,
+                                insideTriangle(a, b, c, vertices[nj]));
+                        printf("j: %i | iA: %i | nj: %i | nA: %i | nB: %i | nC: %i\n", j, iA, nj, nA, nB, nC);
+
                     while (j != iA &&
                             (nj == nA || nj == nB || nj == nC) ||
-                            !insideTriangle(vertices[a], vertices[b], vertices[c], vertices[input_faces[l][nj]])) {
+                            !insideTriangle(a, b, c, vertices[nj])) {
                         printf("Inside Triangle ((%f, %f, %f), (%f,%f,%f), (%f,%f,%f))  & (%f,%f,%f): %i\n",
-                                vertices[a].x, vertices[a].y, vertices[a].z, vertices[b].x, vertices[b].y, vertices[b].z, vertices[c].x, vertices[c].y, vertices[c].z,
-                                vertices[input_faces[l][nj]].x,
-                                vertices[input_faces[l][nj]].y,
-                                vertices[input_faces[l][nj]].z,
-                                insideTriangle(vertices[a], vertices[b], vertices[c], vertices[input_faces[l][nj]]));
+                                a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z,
+                                vertices[nj].x,
+                                vertices[nj].y,
+                                vertices[nj].z,
+                                insideTriangle(a, b, c, vertices[nj]));
                         printf("j: %i | iA: %i | nj: %i | nA: %i | nB: %i | nC: %i\n", j, iA, nj, nA, nB, nC);
                         j = next[j];
-                        nj = abs(j);
+                        nj = abs(input_faces[l][j]);
                     }
                     if(j == iA) {
-                        tr.push_back(Triangle3D{a, b, c});
+                        printf("Pushing Back\n");
+                        tr.push_back(Triangle3D{nA, nB, nC});
                         next[iA] = iC;
                         triangleFound = true;
                     }
@@ -252,9 +286,12 @@ void VectorSpace3D::World_Object::triangularizeObject(){
                 printf("ERROR: Not a simple polygon or vertex sequence not counter-clockwise\n");
             }
         }
-        printf("Flipping\n");
+        printf("Flipping | Triangles size: %lu\n", tr.size());
         while (anyFlipping(&tr, vertices));
         printf("Finished\n");
+        for(int i = 0; i < tr.size(); i++) {
+            printf("TR: %i %i %i\n", tr[0].vertices[0],  tr[0].vertices[1],  tr[0].vertices[2]);
+        }
         triangularized_faces.push_back(VectorSpace3D::Face3D {tr});
         printf("Fac Triangles Size after swap: %lu\n", input_faces[l].size());
     }
@@ -275,7 +312,10 @@ bool VectorSpace3D::clockwise(const Point3D p[], int length){
         if (next == length) {
             next = 0;
         }
-        return area2(p[prev], p[k], p[next]) > 0;
+        return ((area3(p[prev], p[k], p[next], Point3D{1.0f, 0.0f, 0.0f, 0.0f}) > 0 &&
+                    area3(p[prev], p[k], p[next], Point3D{0.0f, 1.0f, 0.0f, 0.0f}) > 0 &&
+                    area3(p[prev], p[k], p[next], Point3D{0.0f, 0.0f, 1.0f, 0.0f}) > 0
+                    ));
     }
     return false;
 }
@@ -283,7 +323,9 @@ bool VectorSpace3D::clockwise(const Point3D p[], int length){
 std::vector<GLuint> VectorSpace3D::World_Object::createIndexArray() {
     std::vector<GLuint> index_array{};
     for(Face3D fac: triangularized_faces) {
+        printf("Going through a face\n");
         for(Triangle3D t: fac.triangles) {
+            printf("Going through a triangle\n");
             index_array.push_back(t.vertices[0]);
             index_array.push_back(t.vertices[1]);
             index_array.push_back(t.vertices[2]);
@@ -295,6 +337,7 @@ std::vector<GLuint> VectorSpace3D::World_Object::createIndexArray() {
 std::vector<GLfloat> VectorSpace3D::World_Object::createTriangleArray(){
     std::vector<GLfloat> triangle_point_list{};
     printf("Number of faces: %lu\n", triangularized_faces.size());
+    int count = 0;
     printf("Number of triangles on face 1: %lu\n", triangularized_faces[0].triangles.size());
     for(Face3D fac: triangularized_faces){
         printf("Triangle Input Array Size: %lu\n", fac.triangles.size());
@@ -308,7 +351,8 @@ std::vector<GLfloat> VectorSpace3D::World_Object::createTriangleArray(){
                     triangle_point_list.push_back(vertices[t.vertices[i]].z);
                     triangle_point_list.push_back(0.8f);
                     triangle_point_list.push_back(0.3f);
-                    triangle_point_list.push_back(0.02f);
+                    triangle_point_list.push_back(0.02f * count);
+                    count++;
                 }
             } else {
                 for(int i = 0; i < 3; i++) {
@@ -318,13 +362,29 @@ std::vector<GLfloat> VectorSpace3D::World_Object::createTriangleArray(){
                     triangle_point_list.push_back(vertices[t.vertices[i]].z);
                     triangle_point_list.push_back(0.8f);
                     triangle_point_list.push_back(0.3f);
-                    triangle_point_list.push_back(0.02f);
+                    triangle_point_list.push_back(0.02f * count);
+                    count++;
                 }
             }
+            count++;
         }
     }
     printf("Triangle Point List Size b4 return: %lu\n", triangle_point_list.size());
     return triangle_point_list;
+}
+
+
+std::vector<GLfloat> VectorSpace3D::World_Object::createPointArray() {
+    std::vector<GLfloat> point_list{};
+    for(int i = 0; i < vertices.size(); i++) {
+        point_list.push_back(vertices[i].x);
+        point_list.push_back(vertices[i].y);
+        point_list.push_back(vertices[i].z);
+        point_list.push_back(0.8f);
+        point_list.push_back(0.3f);
+        point_list.push_back(0.02f);
+    }
+    return point_list;
 }
 
 

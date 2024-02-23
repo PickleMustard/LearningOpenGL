@@ -47,6 +47,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/picklemustard/Documents/cpp_open_gl/build/src/VectorMathAndObjects/cmake_install.cmake")
   include("/home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp/cmake_install.cmake")
   include("/home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects/cmake_install.cmake")
+  include("/home/picklemustard/Documents/cpp_open_gl/build/src/LML/cmake_install.cmake")
+  include("/home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects/cmake_install.cmake")
 
 endif()
 

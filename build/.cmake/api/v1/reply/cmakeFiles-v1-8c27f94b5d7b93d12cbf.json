@@ -134,6 +134,12 @@
 		},
 		{
 			"path" : "src/GLObjects/CMakeLists.txt"
+		},
+		{
+			"path" : "src/LML/CMakeLists.txt"
+		},
+		{
+			"path" : "src/3DObjects/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

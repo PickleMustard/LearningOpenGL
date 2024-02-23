@@ -47,19 +47,19 @@ cmake_ninja_workdir = /home/picklemustard/Documents/cpp_open_gl/build/
 #############################################
 # Order-only phony target for opengl_exploration
 
-build cmake_object_order_depends_target_opengl_exploration: phony || cmake_object_order_depends_target_GLObjects cmake_object_order_depends_target_InitHelp cmake_object_order_depends_target_VectorMathAndObjects
+build cmake_object_order_depends_target_opengl_exploration: phony || cmake_object_order_depends_target_3DObjects cmake_object_order_depends_target_GLObjects cmake_object_order_depends_target_InitHelp cmake_object_order_depends_target_LML cmake_object_order_depends_target_VectorMathAndObjects
 
 build CMakeFiles/opengl_exploration.dir/src/main.cpp.o: CXX_COMPILER__opengl_exploration_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/main.cpp || cmake_object_order_depends_target_opengl_exploration
   DEP_FILE = CMakeFiles/opengl_exploration.dir/src/main.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -I/home/picklemustard/Documents/cpp_open_gl/src/LML -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects
   OBJECT_DIR = CMakeFiles/opengl_exploration.dir
   OBJECT_FILE_DIR = CMakeFiles/opengl_exploration.dir/src
 
 build CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o: CXX_COMPILER__opengl_exploration_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp || cmake_object_order_depends_target_opengl_exploration
   DEP_FILE = CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -I/home/picklemustard/Documents/cpp_open_gl/src/LML -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects
   OBJECT_DIR = CMakeFiles/opengl_exploration.dir
   OBJECT_FILE_DIR = CMakeFiles/opengl_exploration.dir/src/InitHelp
 
@@ -71,11 +71,11 @@ build CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o: CXX
 #############################################
 # Link the executable opengl_exploration
 
-build opengl_exploration: CXX_EXECUTABLE_LINKER__opengl_exploration_Debug CMakeFiles/opengl_exploration.dir/src/main.cpp.o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o | src/InitHelp/libInitHelp.a src/VectorMathAndObjects/libVectorMathAndObjects.a src/GLObjects/libGLObjects.a || src/GLObjects/libGLObjects.a src/InitHelp/libInitHelp.a src/VectorMathAndObjects/libVectorMathAndObjects.a
+build opengl_exploration: CXX_EXECUTABLE_LINKER__opengl_exploration_Debug CMakeFiles/opengl_exploration.dir/src/main.cpp.o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o | src/InitHelp/libInitHelp.a src/VectorMathAndObjects/libVectorMathAndObjects.a src/GLObjects/libGLObjects.a src/LML/libLML.so src/3DObjects/lib3DObjects.a || src/3DObjects/lib3DObjects.a src/GLObjects/libGLObjects.a src/InitHelp/libInitHelp.a src/LML/libLML.so src/VectorMathAndObjects/libVectorMathAndObjects.a
   FLAGS = -g
   LINK_FLAGS = -rdynamic
-  LINK_LIBRARIES = -Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects  -lglfw  -lGL  -lGLEW  src/InitHelp/libInitHelp.a  src/VectorMathAndObjects/libVectorMathAndObjects.a  src/GLObjects/libGLObjects.a
-  LINK_PATH = -L/home/picklemustard/Documents/cpp_open_gl/src/InitHelp   -L/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects   -L/home/picklemustard/Documents/cpp_open_gl/src/GLObjects
+  LINK_LIBRARIES = -Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects:/home/picklemustard/Documents/cpp_open_gl/src/LML:/home/picklemustard/Documents/cpp_open_gl/src/3DObjects:/home/picklemustard/Documents/cpp_open_gl/build/src/LML  -lglfw  -lGL  -lGLEW  src/InitHelp/libInitHelp.a  src/VectorMathAndObjects/libVectorMathAndObjects.a  src/GLObjects/libGLObjects.a  src/LML/libLML.so  src/3DObjects/lib3DObjects.a
+  LINK_PATH = -L/home/picklemustard/Documents/cpp_open_gl/src/InitHelp   -L/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects   -L/home/picklemustard/Documents/cpp_open_gl/src/GLObjects   -L/home/picklemustard/Documents/cpp_open_gl/src/LML   -L/home/picklemustard/Documents/cpp_open_gl/src/3DObjects
   OBJECT_DIR = CMakeFiles/opengl_exploration.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -314,17 +314,166 @@ build src/GLObjects/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build src/GLObjects/rebuild_cache: phony src/GLObjects/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target LML
+
+
+#############################################
+# Order-only phony target for LML
+
+build cmake_object_order_depends_target_LML: phony || src/LML/CMakeFiles/LML.dir
+
+build src/LML/CMakeFiles/LML.dir/matrix.cpp.o: CXX_COMPILER__LML_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/LML/matrix.cpp || cmake_object_order_depends_target_LML
+  DEFINES = -DLML_EXPORTS
+  DEP_FILE = src/LML/CMakeFiles/LML.dir/matrix.cpp.o.d
+  FLAGS = -g -fPIC
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/LML
+  OBJECT_DIR = src/LML/CMakeFiles/LML.dir
+  OBJECT_FILE_DIR = src/LML/CMakeFiles/LML.dir
+
+build src/LML/CMakeFiles/LML.dir/vector.cpp.o: CXX_COMPILER__LML_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/LML/vector.cpp || cmake_object_order_depends_target_LML
+  DEFINES = -DLML_EXPORTS
+  DEP_FILE = src/LML/CMakeFiles/LML.dir/vector.cpp.o.d
+  FLAGS = -g -fPIC
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/LML
+  OBJECT_DIR = src/LML/CMakeFiles/LML.dir
+  OBJECT_FILE_DIR = src/LML/CMakeFiles/LML.dir
+
+build src/LML/CMakeFiles/LML.dir/matrix_transformations.cpp.o: CXX_COMPILER__LML_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/LML/matrix_transformations.cpp || cmake_object_order_depends_target_LML
+  DEFINES = -DLML_EXPORTS
+  DEP_FILE = src/LML/CMakeFiles/LML.dir/matrix_transformations.cpp.o.d
+  FLAGS = -g -fPIC
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/LML
+  OBJECT_DIR = src/LML/CMakeFiles/LML.dir
+  OBJECT_FILE_DIR = src/LML/CMakeFiles/LML.dir
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target LML
+
+
+#############################################
+# Link the shared library src/LML/libLML.so
+
+build src/LML/libLML.so: CXX_SHARED_LIBRARY_LINKER__LML_Debug src/LML/CMakeFiles/LML.dir/matrix.cpp.o src/LML/CMakeFiles/LML.dir/vector.cpp.o src/LML/CMakeFiles/LML.dir/matrix_transformations.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/LML/CMakeFiles/LML.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = libLML.so
+  SONAME_FLAG = -Wl,-soname,
+  TARGET_FILE = src/LML/libLML.so
+  TARGET_PDB = LML.so.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/LML/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/LML && /usr/bin/ccmake -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build src/LML/edit_cache: phony src/LML/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/LML/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/LML && /usr/bin/cmake --regenerate-during-build -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/LML/rebuild_cache: phony src/LML/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target 3DObjects
+
+
+#############################################
+# Order-only phony target for 3DObjects
+
+build cmake_object_order_depends_target_3DObjects: phony || src/3DObjects/CMakeFiles/3DObjects.dir
+
+build src/3DObjects/CMakeFiles/3DObjects.dir/camera.cpp.o: CXX_COMPILER__3DObjects_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/3DObjects/camera.cpp || cmake_object_order_depends_target_3DObjects
+  DEP_FILE = src/3DObjects/CMakeFiles/3DObjects.dir/camera.cpp.o.d
+  FLAGS = -g
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects
+  OBJECT_DIR = src/3DObjects/CMakeFiles/3DObjects.dir
+  OBJECT_FILE_DIR = src/3DObjects/CMakeFiles/3DObjects.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target 3DObjects
+
+
+#############################################
+# Link the static library src/3DObjects/lib3DObjects.a
+
+build src/3DObjects/lib3DObjects.a: CXX_STATIC_LIBRARY_LINKER__3DObjects_Debug src/3DObjects/CMakeFiles/3DObjects.dir/camera.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/3DObjects/CMakeFiles/3DObjects.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/3DObjects/lib3DObjects.a
+  TARGET_PDB = 3DObjects.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/3DObjects/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects && /usr/bin/ccmake -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build src/3DObjects/edit_cache: phony src/3DObjects/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/3DObjects/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects && /usr/bin/cmake --regenerate-during-build -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/3DObjects/rebuild_cache: phony src/3DObjects/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
+
+build 3DObjects: phony src/3DObjects/lib3DObjects.a
 
 build GLObjects: phony src/GLObjects/libGLObjects.a
 
 build InitHelp: phony src/InitHelp/libInitHelp.a
 
+build LML: phony src/LML/libLML.so
+
 build VectorMathAndObjects: phony src/VectorMathAndObjects/libVectorMathAndObjects.a
+
+build lib3DObjects.a: phony src/3DObjects/lib3DObjects.a
 
 build libGLObjects.a: phony src/GLObjects/libGLObjects.a
 
 build libInitHelp.a: phony src/InitHelp/libInitHelp.a
+
+build libLML.so: phony src/LML/libLML.so
 
 build libVectorMathAndObjects.a: phony src/VectorMathAndObjects/libVectorMathAndObjects.a
 
@@ -336,7 +485,14 @@ build libVectorMathAndObjects.a: phony src/VectorMathAndObjects/libVectorMathAnd
 #############################################
 # Folder: /home/picklemustard/Documents/cpp_open_gl/build
 
-build all: phony opengl_exploration src/VectorMathAndObjects/all src/InitHelp/all src/GLObjects/all
+build all: phony opengl_exploration src/VectorMathAndObjects/all src/InitHelp/all src/GLObjects/all src/LML/all src/3DObjects/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects
+
+build src/3DObjects/all: phony src/3DObjects/lib3DObjects.a
 
 # =============================================================================
 
@@ -351,6 +507,13 @@ build src/GLObjects/all: phony src/GLObjects/libGLObjects.a
 # Folder: /home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp
 
 build src/InitHelp/all: phony src/InitHelp/libInitHelp.a
+
+# =============================================================================
+
+#############################################
+# Folder: /home/picklemustard/Documents/cpp_open_gl/build/src/LML
+
+build src/LML/all: phony src/LML/libLML.so
 
 # =============================================================================
 
@@ -371,14 +534,14 @@ build src/VectorMathAndObjects/all: phony src/VectorMathAndObjects/libVectorMath
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/3DObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/LML/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake: phony
+build /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/3DObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/LML/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake: phony
 
 
 #############################################

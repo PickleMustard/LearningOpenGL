@@ -33,19 +33,19 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 16,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 22,
+				"line" : 29,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 10,
+				"line" : 13,
 				"parent" : 0
 			}
 		]
@@ -72,6 +72,14 @@
 				{
 					"backtrace" : 4,
 					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/GLObjects"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/LML"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/3DObjects"
 				}
 			],
 			"language" : "CXX",
@@ -95,6 +103,14 @@
 		{
 			"backtrace" : 3,
 			"id" : "GLObjects::@72c1c9d69cb92aa44416"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "LML::@f38ab0484b5e1b7088a6"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "3DObjects::@f077a888000d4da8eaa7"
 		}
 	],
 	"id" : "opengl_exploration::@6890427a1f51a3e7e1df",
@@ -126,7 +142,17 @@
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects",
+				"backtrace" : 2,
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/src/LML",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/src/3DObjects",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects:/home/picklemustard/Documents/cpp_open_gl/src/LML:/home/picklemustard/Documents/cpp_open_gl/src/3DObjects:/home/picklemustard/Documents/cpp_open_gl/build/src/LML",
 				"role" : "libraries"
 			},
 			{
@@ -158,6 +184,16 @@
 				"backtrace" : 3,
 				"fragment" : "src/GLObjects/libGLObjects.a",
 				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "src/LML/libLML.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "src/3DObjects/lib3DObjects.a",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
@@ -185,7 +221,11 @@
 			[
 				2,
 				3,
-				4
+				4,
+				5,
+				6,
+				7,
+				8
 			]
 		}
 	],
@@ -216,6 +256,26 @@
 		{
 			"backtrace" : 3,
 			"path" : "src/GLObjects/VBO.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/LML/matrix.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/LML/vector.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/LML/matrix_transformations.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/3DObjects/camera.h",
 			"sourceGroupIndex" : 1
 		}
 	],

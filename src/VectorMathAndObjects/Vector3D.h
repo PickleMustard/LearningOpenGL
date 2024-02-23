@@ -22,12 +22,16 @@ namespace VectorSpace3D {
     };
 
     float area2(const Point3D& a, const Point3D& b, const Point3D& c);
+    float area3(const Point3D& a, const Point3D& b, const Point3D& c, const Point3D& dir);
+    Point3D cross(const Point3D& a, const Point3D& b);
+    float dot(const Point3D& a, const Point3D& b);
     bool insideTriangle(const Point3D& a, const Point3D& b, const Point3D& c, const Point3D& p);
     float angle(const Point3D& a, const Point3D& b, const Point3D& c);
     bool flippingDesirable(int iP, int iQ, int iR, int iS, std::vector<Point3D> vertices);
     void flipTriangles(std::vector<Triangle3D> tris, int iP, int iQ, int iR, int iS, int i, int j);
     bool anyFlipping(std::vector<Triangle3D>* tris, const std::vector<Point3D> vertices);
     bool clockwise(const Point3D p[], int length);
+    Point3D operator-(const Point3D& a, const Point3D& b);
 
     class World_Object {
         private:
@@ -36,6 +40,7 @@ namespace VectorSpace3D {
             std::vector<std::vector<int>> input_faces;
             std::vector<Face3D> triangularized_faces;
             std::vector<Point3D> vertices;
+            std::vector<int> indices;
             std::vector<Point3D> eye_point_vertices;
             std::vector<Point3D> screen_point_vertices;
             float obj_size;
@@ -60,6 +65,7 @@ namespace VectorSpace3D {
             void triangularizeObject();
             std::vector<GLuint> createIndexArray();
             std::vector<GLfloat> createTriangleArray();
+            std::vector<GLfloat> createPointArray();
             std::vector<GLfloat> createNormalArray(const std::vector<GLfloat> point_array);
             std::vector<GLfloat> createColorArray(const std::vector<GLfloat> point_array);
 
