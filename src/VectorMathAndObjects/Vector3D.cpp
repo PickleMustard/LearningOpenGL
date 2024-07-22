@@ -37,7 +37,8 @@ bool VectorSpace3D::insideTriangle(const Point3D &a, const Point3D &b, const Poi
         VectorSpace3D::area3(a,b, p, Point3D{0.0f, 0.0f, 1.0f, 0.0f}) >= 0 &&
         VectorSpace3D::area3(b, c, p, Point3D{0.0f, 0.0f, 1.0f, 0.0f}) >= 0 &&
         VectorSpace3D::area3(c, a, p, Point3D{0.0f, 0.0f, 1.0f, 0.0f}) >= 0;
-        }
+}
+
 float VectorSpace3D::angle(const Point3D &a, const Point3D &b, const Point3D &c){
     float xBA = a.x - b.x, yBA = a.y - b.y,
           xBC = c.x - b.x, yBC = c.y - b.y,

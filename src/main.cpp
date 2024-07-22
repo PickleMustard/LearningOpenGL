@@ -96,7 +96,6 @@ int main(int argc, char* argv[]) {
     gl_log("Starting GLFW\n%s\n", glfwGetVersionString());
     glfwSetErrorCallback(glfw_error_callback);
 
-
     //Library Initialization
     if(!glfwInit()){
         return -1;
@@ -174,7 +173,6 @@ int main(int argc, char* argv[]) {
             printf("Face(%i) index num: %i\n", i, object_faces[i][j]);
         }
     }
-
 
     VectorSpace3D::World_Object obj{1,1,1, object_vertices, object_faces, VectorSpace3D::Point3D{0.0f, 0.0f, 0.0f, 0.0f}};
 
