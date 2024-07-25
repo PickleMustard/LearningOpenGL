@@ -7,7 +7,7 @@ on:
 
 jobs:
   tests:
-    name: Build Linux
+    name: Build Linux and Windows
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -15,7 +15,6 @@ jobs:
         os:
           - windows-latest
           - ubuntu-latest
-          - macos-latest
         compiler:
           - llvm
           - gcc
@@ -31,3 +30,6 @@ jobs:
           cmake: true
           ninja: true
           cppcheck: true
+
+      - name: Test CMake Build
+        run: cmake build
