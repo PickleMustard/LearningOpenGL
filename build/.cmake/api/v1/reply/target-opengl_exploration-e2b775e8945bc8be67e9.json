@@ -17,7 +17,8 @@
 		],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"CMakeLists.txt",
+			"glfw/src/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -27,25 +28,40 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 4,
+				"line" : 8,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 21,
+				"line" : 40,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 29,
+				"line" : 48,
 				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 226,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 238,
+				"parent" : 4
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 13,
+				"line" : 32,
 				"parent" : 0
 			}
 		]
@@ -53,33 +69,31 @@
 	"compileGroups" : 
 	[
 		{
-			"compileCommandFragments" : 
-			[
-				{
-					"fragment" : "-g"
-				}
-			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 7,
 					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 7,
 					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 7,
 					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/GLObjects"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 7,
 					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/LML"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 7,
 					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/3DObjects"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/glfw/include"
 				}
 			],
 			"language" : "CXX",
@@ -111,6 +125,10 @@
 		{
 			"backtrace" : 3,
 			"id" : "3DObjects::@f077a888000d4da8eaa7"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "glfw::@12507ebf64a5258d241e"
 		}
 	],
 	"id" : "opengl_exploration::@6890427a1f51a3e7e1df",
@@ -119,11 +137,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "-rdynamic",
+				"fragment" : "",
 				"role" : "flags"
 			},
 			{
@@ -157,7 +171,7 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-lglfw",
+				"fragment" : "glfw/src/libglfw3.a",
 				"role" : "libraries"
 			},
 			{
@@ -193,6 +207,20 @@
 			{
 				"backtrace" : 3,
 				"fragment" : "src/3DObjects/lib3DObjects.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/usr/lib64/librt.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-ldl",
 				"role" : "libraries"
 			}
 		],
