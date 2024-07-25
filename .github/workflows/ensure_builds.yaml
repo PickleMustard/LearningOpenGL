@@ -31,21 +31,6 @@ jobs:
           ninja: true
           cppcheck: true
 
-      - name: Print directory contents
-        run: ls
-
-      - name: Move to Build Folder
-        run: cd build
-
-      - name: Print Directory
-        run: pwd
-
-      - name: Generate Build Files
-        run: cmake ..
-
-      - name: Move to root folder
-        run: cd ..
-
       - name: Test CMake Build
-        run: cmake build
+        run: cmake -B build -S .
 
