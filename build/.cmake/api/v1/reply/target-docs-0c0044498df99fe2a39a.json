@@ -55,7 +55,7 @@
 		},
 		{
 			"backtrace" : 0,
-			"path" : "build/glfw/docs/Doxyfile",
+			"path" : "glfw/docs/Doxyfile",
 			"sourceGroupIndex" : 0
 		}
 	],

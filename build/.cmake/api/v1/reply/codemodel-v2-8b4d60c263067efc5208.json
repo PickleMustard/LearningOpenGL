@@ -16,7 +16,7 @@
 						6
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.28.0"
@@ -30,7 +30,7 @@
 				},
 				{
 					"build" : "src/VectorMathAndObjects",
-					"jsonFile" : "directory-src.VectorMathAndObjects-Debug-66e5a0b95e1c3b862276.json",
+					"jsonFile" : "directory-src.VectorMathAndObjects-66e5a0b95e1c3b862276.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.28.0"
@@ -45,7 +45,7 @@
 				},
 				{
 					"build" : "src/InitHelp",
-					"jsonFile" : "directory-src.InitHelp-Debug-44031ee8d6410b0f330e.json",
+					"jsonFile" : "directory-src.InitHelp-44031ee8d6410b0f330e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.28.0"
@@ -60,7 +60,7 @@
 				},
 				{
 					"build" : "src/GLObjects",
-					"jsonFile" : "directory-src.GLObjects-Debug-292679cb1836d6ca2010.json",
+					"jsonFile" : "directory-src.GLObjects-292679cb1836d6ca2010.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.28.0"
@@ -75,7 +75,7 @@
 				},
 				{
 					"build" : "src/LML",
-					"jsonFile" : "directory-src.LML-Debug-2e52debf44f22b4f8ed2.json",
+					"jsonFile" : "directory-src.LML-2e52debf44f22b4f8ed2.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.28.0"
@@ -90,7 +90,7 @@
 				},
 				{
 					"build" : "src/3DObjects",
-					"jsonFile" : "directory-src.3DObjects-Debug-0fbb50fa9d36f8bc094e.json",
+					"jsonFile" : "directory-src.3DObjects-0fbb50fa9d36f8bc094e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.28.0"
@@ -111,7 +111,7 @@
 						8
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-glfw-Debug-d0205cbe3777c14bff74.json",
+					"jsonFile" : "directory-glfw-d0205cbe3777c14bff74.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.4"
@@ -127,7 +127,7 @@
 				{
 					"build" : "glfw/src",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-glfw.src-Debug-b72b0e2bd52410a405f3.json",
+					"jsonFile" : "directory-glfw.src-b72b0e2bd52410a405f3.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.4"
@@ -144,7 +144,7 @@
 				{
 					"build" : "glfw/docs",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-glfw.docs-Debug-131a04073f85256fd9ff.json",
+					"jsonFile" : "directory-glfw.docs-131a04073f85256fd9ff.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.4"
@@ -158,7 +158,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "",
 			"projects" : 
 			[
 				{
@@ -209,70 +209,70 @@
 				{
 					"directoryIndex" : 5,
 					"id" : "3DObjects::@f077a888000d4da8eaa7",
-					"jsonFile" : "target-3DObjects-Debug-132ecde0a84fe7365e2c.json",
+					"jsonFile" : "target-3DObjects-3611ce2cb8a34c78bf90.json",
 					"name" : "3DObjects",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "GLObjects::@72c1c9d69cb92aa44416",
-					"jsonFile" : "target-GLObjects-Debug-538b9613fba88afa4833.json",
+					"jsonFile" : "target-GLObjects-7ef0d2a7e30c2b992680.json",
 					"name" : "GLObjects",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "InitHelp::@37666b112a09a5266904",
-					"jsonFile" : "target-InitHelp-Debug-32a509a729ac9733369e.json",
+					"jsonFile" : "target-InitHelp-5b006ce8834d3ad06e54.json",
 					"name" : "InitHelp",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "LML::@f38ab0484b5e1b7088a6",
-					"jsonFile" : "target-LML-Debug-152252331db5339cfccb.json",
+					"jsonFile" : "target-LML-4b2be21a2550f953ae70.json",
 					"name" : "LML",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "VectorMathAndObjects::@48d0387db7728c00e7b9",
-					"jsonFile" : "target-VectorMathAndObjects-Debug-2e008994a4cf22f39127.json",
+					"jsonFile" : "target-VectorMathAndObjects-ef1ad125ed3d12da998f.json",
 					"name" : "VectorMathAndObjects",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 8,
 					"id" : "docs::@aa0474f2057a315844e7",
-					"jsonFile" : "target-docs-Debug-d0a8f9edda62db82e823.json",
+					"jsonFile" : "target-docs-0c0044498df99fe2a39a.json",
 					"name" : "docs",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 7,
 					"id" : "glfw::@12507ebf64a5258d241e",
-					"jsonFile" : "target-glfw-Debug-187c18ffbb666659891c.json",
+					"jsonFile" : "target-glfw-e9dcf11b97fa8c368886.json",
 					"name" : "glfw",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "opengl_exploration::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opengl_exploration-Debug-fa9ae0286c52bad7b5a6.json",
+					"jsonFile" : "target-opengl_exploration-e2b775e8945bc8be67e9.json",
 					"name" : "opengl_exploration",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 6,
 					"id" : "uninstall::@eb154563b92743f6cbb3",
-					"jsonFile" : "target-uninstall-Debug-41070acd2c1f18cf7cfc.json",
+					"jsonFile" : "target-uninstall-41070acd2c1f18cf7cfc.json",
 					"name" : "uninstall",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 7,
 					"id" : "update_mappings::@12507ebf64a5258d241e",
-					"jsonFile" : "target-update_mappings-Debug-09ef1728c8234d33a2e0.json",
+					"jsonFile" : "target-update_mappings-09ef1728c8234d33a2e0.json",
 					"name" : "update_mappings",
 					"projectIndex" : 1
 				}

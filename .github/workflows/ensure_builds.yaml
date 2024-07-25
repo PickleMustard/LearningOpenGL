@@ -31,5 +31,15 @@ jobs:
           ninja: true
           cppcheck: true
 
+      - name: Move to Build Folder
+        run: cd build
+
+      - name: Generate Build Files
+        run: cmake ..
+
+      - name: Move to root folder
+        run: cd ..
+
       - name: Test CMake Build
         run: cmake build
+

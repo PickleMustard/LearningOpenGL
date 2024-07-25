@@ -235,7 +235,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=c99 -fPIC"
+					"fragment" : "-std=c99 -fPIC"
 				},
 				{
 					"backtrace" : 3,

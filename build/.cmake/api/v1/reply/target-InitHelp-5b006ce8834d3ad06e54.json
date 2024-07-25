@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "src/VectorMathAndObjects/libVectorMathAndObjects.a"
+			"path" : "src/InitHelp/libInitHelp.a"
 		}
 	],
 	"backtrace" : 1,
@@ -15,7 +15,7 @@
 		],
 		"files" : 
 		[
-			"src/VectorMathAndObjects/CMakeLists.txt"
+			"src/InitHelp/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -33,12 +33,6 @@
 	"compileGroups" : 
 	[
 		{
-			"compileCommandFragments" : 
-			[
-				{
-					"fragment" : "-g"
-				}
-			],
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
@@ -47,13 +41,13 @@
 			]
 		}
 	],
-	"id" : "VectorMathAndObjects::@48d0387db7728c00e7b9",
-	"name" : "VectorMathAndObjects",
-	"nameOnDisk" : "libVectorMathAndObjects.a",
+	"id" : "InitHelp::@37666b112a09a5266904",
+	"name" : "InitHelp",
+	"nameOnDisk" : "libInitHelp.a",
 	"paths" : 
 	{
-		"build" : "src/VectorMathAndObjects",
-		"source" : "src/VectorMathAndObjects"
+		"build" : "src/InitHelp",
+		"source" : "src/InitHelp"
 	},
 	"sourceGroups" : 
 	[
@@ -79,23 +73,23 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/VectorMathAndObjects/Vector2D.cpp",
+			"path" : "src/InitHelp/PolygonInputFileParser.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/VectorMathAndObjects/Vector2D.h",
+			"path" : "src/InitHelp/PolygonInputFileParser.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/VectorMathAndObjects/Vector3D.cpp",
+			"path" : "src/InitHelp/InitializeOpenGL.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/VectorMathAndObjects/Vector3D.h",
+			"path" : "src/InitHelp/InitializeOpenGL.h",
 			"sourceGroupIndex" : 1
 		}
 	],
