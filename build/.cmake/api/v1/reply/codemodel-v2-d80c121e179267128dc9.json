@@ -12,18 +12,20 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6
 					],
+					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.0.0"
+						"string" : "3.28.0"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						5
+						7
 					]
 				},
 				{
@@ -31,7 +33,7 @@
 					"jsonFile" : "directory-src.VectorMathAndObjects-Debug-66e5a0b95e1c3b862276.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.0.0"
+						"string" : "3.28.0"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -46,7 +48,7 @@
 					"jsonFile" : "directory-src.InitHelp-Debug-44031ee8d6410b0f330e.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.0.0"
+						"string" : "3.28.0"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -61,7 +63,7 @@
 					"jsonFile" : "directory-src.GLObjects-Debug-292679cb1836d6ca2010.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.0.0"
+						"string" : "3.28.0"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -76,7 +78,7 @@
 					"jsonFile" : "directory-src.LML-Debug-2e52debf44f22b4f8ed2.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.0.0"
+						"string" : "3.28.0"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -91,7 +93,7 @@
 					"jsonFile" : "directory-src.3DObjects-Debug-0fbb50fa9d36f8bc094e.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.0.0"
+						"string" : "3.28.0"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -100,12 +102,70 @@
 					[
 						0
 					]
+				},
+				{
+					"build" : "glfw",
+					"childIndexes" : 
+					[
+						7,
+						8
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-glfw-Debug-d0205cbe3777c14bff74.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "glfw",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "glfw/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-glfw.src-Debug-b72b0e2bd52410a405f3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 1,
+					"source" : "glfw/src",
+					"targetIndexes" : 
+					[
+						6,
+						9
+					]
+				},
+				{
+					"build" : "glfw/docs",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-glfw.docs-Debug-131a04073f85256fd9ff.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 1,
+					"source" : "glfw/docs",
+					"targetIndexes" : 
+					[
+						5
+					]
 				}
 			],
 			"name" : "Debug",
 			"projects" : 
 			[
 				{
+					"childIndexes" : 
+					[
+						1
+					],
 					"directoryIndexes" : 
 					[
 						0,
@@ -123,7 +183,24 @@
 						2,
 						3,
 						4,
-						5
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6,
+						7,
+						8
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						5,
+						6,
+						8,
+						9
 					]
 				}
 			],
@@ -165,11 +242,39 @@
 					"projectIndex" : 0
 				},
 				{
+					"directoryIndex" : 8,
+					"id" : "docs::@aa0474f2057a315844e7",
+					"jsonFile" : "target-docs-Debug-d0a8f9edda62db82e823.json",
+					"name" : "docs",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "glfw::@12507ebf64a5258d241e",
+					"jsonFile" : "target-glfw-Debug-187c18ffbb666659891c.json",
+					"name" : "glfw",
+					"projectIndex" : 1
+				},
+				{
 					"directoryIndex" : 0,
 					"id" : "opengl_exploration::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opengl_exploration-Debug-93c7eb8f7b452ea65684.json",
+					"jsonFile" : "target-opengl_exploration-Debug-fa9ae0286c52bad7b5a6.json",
 					"name" : "opengl_exploration",
 					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "uninstall::@eb154563b92743f6cbb3",
+					"jsonFile" : "target-uninstall-Debug-41070acd2c1f18cf7cfc.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "update_mappings::@12507ebf64a5258d241e",
+					"jsonFile" : "target-update_mappings-Debug-09ef1728c8234d33a2e0.json",
+					"name" : "update_mappings",
+					"projectIndex" : 1
 				}
 			]
 		}

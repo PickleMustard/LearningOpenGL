@@ -940,3 +940,197 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "glfw/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-svzwKI"
+      binary: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-svzwKI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/picklemustard/Documents/cpp_open_gl/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-svzwKI'
+        
+        Run Build Command(s): /usr/bin/ninja-build -v cmTC_08585
+        [1/2] /usr/lib64/ccache/gcc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_08585.dir/src.c.o -c /home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-svzwKI/src.c
+        [2/2] : && /usr/lib64/ccache/gcc   CMakeFiles/cmTC_08585.dir/src.c.o -o cmTC_08585   && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "glfw/src/CMakeLists.txt:69 (check_function_exists)"
+    checks:
+      - "Looking for memfd_create"
+    directories:
+      source: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-DCW7QI"
+      binary: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-DCW7QI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/picklemustard/Documents/cpp_open_gl/glfw/CMake/modules"
+    buildResult:
+      variable: "HAVE_MEMFD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-DCW7QI'
+        
+        Run Build Command(s): /usr/bin/ninja-build -v cmTC_683ad
+        [1/2] /usr/lib64/ccache/gcc   -DCHECK_FUNCTION_EXISTS=memfd_create -o CMakeFiles/cmTC_683ad.dir/CheckFunctionExists.c.o -c /home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-DCW7QI/CheckFunctionExists.c
+        [2/2] : && /usr/lib64/ccache/gcc -DCHECK_FUNCTION_EXISTS=memfd_create  CMakeFiles/cmTC_683ad.dir/CheckFunctionExists.c.o -o cmTC_683ad   && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "/usr/share/cmake/Modules/FindX11.cmake:682 (check_library_exists)"
+      - "glfw/src/CMakeLists.txt:182 (find_package)"
+    checks:
+      - "Looking for XOpenDisplay in /usr/lib64/libX11.so;/usr/lib64/libXext.so"
+    directories:
+      source: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-N0NpH8"
+      binary: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-N0NpH8"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/picklemustard/Documents/cpp_open_gl/glfw/CMake/modules"
+    buildResult:
+      variable: "X11_LIB_X11_SOLO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-N0NpH8'
+        
+        Run Build Command(s): /usr/bin/ninja-build -v cmTC_9bc32
+        [1/2] /usr/lib64/ccache/gcc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_9bc32.dir/CheckFunctionExists.c.o -c /home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-N0NpH8/CheckFunctionExists.c
+        [2/2] : && /usr/lib64/ccache/gcc -DCHECK_FUNCTION_EXISTS=XOpenDisplay  CMakeFiles/cmTC_9bc32.dir/CheckFunctionExists.c.o -o cmTC_9bc32  /usr/lib64/libX11.so  /usr/lib64/libXext.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake/Modules/FindX11.cmake:697 (check_function_exists)"
+      - "glfw/src/CMakeLists.txt:182 (find_package)"
+    checks:
+      - "Looking for gethostbyname"
+    directories:
+      source: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-M5NaSm"
+      binary: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-M5NaSm"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/picklemustard/Documents/cpp_open_gl/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_GETHOSTBYNAME"
+      cached: true
+      stdout: |
+        Change Dir: '/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-M5NaSm'
+        
+        Run Build Command(s): /usr/bin/ninja-build -v cmTC_61db1
+        [1/2] /usr/lib64/ccache/gcc   -DCHECK_FUNCTION_EXISTS=gethostbyname -o CMakeFiles/cmTC_61db1.dir/CheckFunctionExists.c.o -c /home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-M5NaSm/CheckFunctionExists.c
+        [2/2] : && /usr/lib64/ccache/gcc -DCHECK_FUNCTION_EXISTS=gethostbyname  CMakeFiles/cmTC_61db1.dir/CheckFunctionExists.c.o -o cmTC_61db1   && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake/Modules/FindX11.cmake:711 (check_function_exists)"
+      - "glfw/src/CMakeLists.txt:182 (find_package)"
+    checks:
+      - "Looking for connect"
+    directories:
+      source: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-vJ673l"
+      binary: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-vJ673l"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/picklemustard/Documents/cpp_open_gl/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_CONNECT"
+      cached: true
+      stdout: |
+        Change Dir: '/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-vJ673l'
+        
+        Run Build Command(s): /usr/bin/ninja-build -v cmTC_a9171
+        [1/2] /usr/lib64/ccache/gcc   -DCHECK_FUNCTION_EXISTS=connect -o CMakeFiles/cmTC_a9171.dir/CheckFunctionExists.c.o -c /home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-vJ673l/CheckFunctionExists.c
+        [2/2] : && /usr/lib64/ccache/gcc -DCHECK_FUNCTION_EXISTS=connect  CMakeFiles/cmTC_a9171.dir/CheckFunctionExists.c.o -o cmTC_a9171   && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake/Modules/FindX11.cmake:720 (check_function_exists)"
+      - "glfw/src/CMakeLists.txt:182 (find_package)"
+    checks:
+      - "Looking for remove"
+    directories:
+      source: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-rngK9H"
+      binary: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-rngK9H"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/picklemustard/Documents/cpp_open_gl/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_REMOVE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-rngK9H'
+        
+        Run Build Command(s): /usr/bin/ninja-build -v cmTC_de1a7
+        [1/2] /usr/lib64/ccache/gcc   -DCHECK_FUNCTION_EXISTS=remove -o CMakeFiles/cmTC_de1a7.dir/CheckFunctionExists.c.o -c /home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-rngK9H/CheckFunctionExists.c
+        [2/2] : && /usr/lib64/ccache/gcc -DCHECK_FUNCTION_EXISTS=remove  CMakeFiles/cmTC_de1a7.dir/CheckFunctionExists.c.o -o cmTC_de1a7   && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake/Modules/FindX11.cmake:729 (check_function_exists)"
+      - "glfw/src/CMakeLists.txt:182 (find_package)"
+    checks:
+      - "Looking for shmat"
+    directories:
+      source: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-7TgZDI"
+      binary: "/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-7TgZDI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/picklemustard/Documents/cpp_open_gl/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_SHMAT"
+      cached: true
+      stdout: |
+        Change Dir: '/home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-7TgZDI'
+        
+        Run Build Command(s): /usr/bin/ninja-build -v cmTC_9f0f4
+        [1/2] /usr/lib64/ccache/gcc   -DCHECK_FUNCTION_EXISTS=shmat -o CMakeFiles/cmTC_9f0f4.dir/CheckFunctionExists.c.o -c /home/picklemustard/Documents/cpp_open_gl/build/CMakeFiles/CMakeScratch/TryCompile-7TgZDI/CheckFunctionExists.c
+        [2/2] : && /usr/lib64/ccache/gcc -DCHECK_FUNCTION_EXISTS=shmat  CMakeFiles/cmTC_9f0f4.dir/CheckFunctionExists.c.o -o cmTC_9f0f4   && :
+        
+      exitCode: 0
+...

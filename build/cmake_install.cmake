@@ -43,13 +43,33 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
+  # Include the install script for the subdirectory.
   include("/home/picklemustard/Documents/cpp_open_gl/build/src/VectorMathAndObjects/cmake_install.cmake")
-  include("/home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp/cmake_install.cmake")
-  include("/home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects/cmake_install.cmake")
-  include("/home/picklemustard/Documents/cpp_open_gl/build/src/LML/cmake_install.cmake")
-  include("/home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects/cmake_install.cmake")
+endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/picklemustard/Documents/cpp_open_gl/build/src/LML/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/picklemustard/Documents/cpp_open_gl/build/glfw/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

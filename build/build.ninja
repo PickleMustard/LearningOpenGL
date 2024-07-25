@@ -47,25 +47,21 @@ cmake_ninja_workdir = /home/picklemustard/Documents/cpp_open_gl/build/
 #############################################
 # Order-only phony target for opengl_exploration
 
-build cmake_object_order_depends_target_opengl_exploration: phony || cmake_object_order_depends_target_3DObjects cmake_object_order_depends_target_GLObjects cmake_object_order_depends_target_InitHelp cmake_object_order_depends_target_LML cmake_object_order_depends_target_VectorMathAndObjects
+build cmake_object_order_depends_target_opengl_exploration: phony || cmake_object_order_depends_target_3DObjects cmake_object_order_depends_target_GLObjects cmake_object_order_depends_target_InitHelp cmake_object_order_depends_target_LML cmake_object_order_depends_target_VectorMathAndObjects cmake_object_order_depends_target_glfw
 
 build CMakeFiles/opengl_exploration.dir/src/main.cpp.o: CXX_COMPILER__opengl_exploration_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/main.cpp || cmake_object_order_depends_target_opengl_exploration
   DEP_FILE = CMakeFiles/opengl_exploration.dir/src/main.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -I/home/picklemustard/Documents/cpp_open_gl/src/LML -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -I/home/picklemustard/Documents/cpp_open_gl/src/LML -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects -I/home/picklemustard/Documents/cpp_open_gl/glfw/include
   OBJECT_DIR = CMakeFiles/opengl_exploration.dir
   OBJECT_FILE_DIR = CMakeFiles/opengl_exploration.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/opengl_exploration.dir/
-  TARGET_PDB = opengl_exploration.pdb
 
 build CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o: CXX_COMPILER__opengl_exploration_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp || cmake_object_order_depends_target_opengl_exploration
   DEP_FILE = CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -I/home/picklemustard/Documents/cpp_open_gl/src/LML -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/InitHelp -I/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects -I/home/picklemustard/Documents/cpp_open_gl/src/LML -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects -I/home/picklemustard/Documents/cpp_open_gl/glfw/include
   OBJECT_DIR = CMakeFiles/opengl_exploration.dir
   OBJECT_FILE_DIR = CMakeFiles/opengl_exploration.dir/src/InitHelp
-  TARGET_COMPILE_PDB = CMakeFiles/opengl_exploration.dir/
-  TARGET_PDB = opengl_exploration.pdb
 
 
 # =============================================================================
@@ -75,17 +71,15 @@ build CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o: CXX
 #############################################
 # Link the executable opengl_exploration
 
-build opengl_exploration: CXX_EXECUTABLE_LINKER__opengl_exploration_Debug CMakeFiles/opengl_exploration.dir/src/main.cpp.o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o | src/InitHelp/libInitHelp.a src/VectorMathAndObjects/libVectorMathAndObjects.a src/GLObjects/libGLObjects.a src/LML/libLML.so src/3DObjects/lib3DObjects.a || src/3DObjects/lib3DObjects.a src/GLObjects/libGLObjects.a src/InitHelp/libInitHelp.a src/LML/libLML.so src/VectorMathAndObjects/libVectorMathAndObjects.a
+build opengl_exploration: CXX_EXECUTABLE_LINKER__opengl_exploration_Debug CMakeFiles/opengl_exploration.dir/src/main.cpp.o CMakeFiles/opengl_exploration.dir/src/InitHelp/InitializeOpenGL.cpp.o | glfw/src/libglfw3.a src/InitHelp/libInitHelp.a src/VectorMathAndObjects/libVectorMathAndObjects.a src/GLObjects/libGLObjects.a src/LML/libLML.so src/3DObjects/lib3DObjects.a /usr/lib64/librt.a /usr/lib64/libm.so || glfw/src/libglfw3.a src/3DObjects/lib3DObjects.a src/GLObjects/libGLObjects.a src/InitHelp/libInitHelp.a src/LML/libLML.so src/VectorMathAndObjects/libVectorMathAndObjects.a
   FLAGS = -g
-  LINK_FLAGS = -rdynamic
-  LINK_LIBRARIES = -Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects:/home/picklemustard/Documents/cpp_open_gl/src/LML:/home/picklemustard/Documents/cpp_open_gl/src/3DObjects:/home/picklemustard/Documents/cpp_open_gl/build/src/LML  -lglfw  -lGL  -lGLEW  src/InitHelp/libInitHelp.a  src/VectorMathAndObjects/libVectorMathAndObjects.a  src/GLObjects/libGLObjects.a  src/LML/libLML.so  src/3DObjects/lib3DObjects.a
+  LINK_LIBRARIES = -Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects:/home/picklemustard/Documents/cpp_open_gl/src/LML:/home/picklemustard/Documents/cpp_open_gl/src/3DObjects:/home/picklemustard/Documents/cpp_open_gl/build/src/LML  glfw/src/libglfw3.a  -lGL  -lGLEW  src/InitHelp/libInitHelp.a  src/VectorMathAndObjects/libVectorMathAndObjects.a  src/GLObjects/libGLObjects.a  src/LML/libLML.so  src/3DObjects/lib3DObjects.a  /usr/lib64/librt.a  -lm  -ldl
   LINK_PATH = -L/home/picklemustard/Documents/cpp_open_gl/src/InitHelp   -L/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects   -L/home/picklemustard/Documents/cpp_open_gl/src/GLObjects   -L/home/picklemustard/Documents/cpp_open_gl/src/LML   -L/home/picklemustard/Documents/cpp_open_gl/src/3DObjects
   OBJECT_DIR = CMakeFiles/opengl_exploration.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/opengl_exploration.dir/
   TARGET_FILE = opengl_exploration
-  TARGET_PDB = opengl_exploration.pdb
+  TARGET_PDB = opengl_exploration.dbg
 
 
 #############################################
@@ -111,6 +105,48 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt
@@ -130,16 +166,12 @@ build src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector2D.cpp.
   FLAGS = -g
   OBJECT_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
   OBJECT_FILE_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
-  TARGET_COMPILE_PDB = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/VectorMathAndObjects.pdb
-  TARGET_PDB = src/VectorMathAndObjects/libVectorMathAndObjects.pdb
 
 build src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector3D.cpp.o: CXX_COMPILER__VectorMathAndObjects_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/Vector3D.cpp || cmake_object_order_depends_target_VectorMathAndObjects
   DEP_FILE = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/Vector3D.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
   OBJECT_FILE_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
-  TARGET_COMPILE_PDB = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/VectorMathAndObjects.pdb
-  TARGET_PDB = src/VectorMathAndObjects/libVectorMathAndObjects.pdb
 
 
 # =============================================================================
@@ -154,9 +186,8 @@ build src/VectorMathAndObjects/libVectorMathAndObjects.a: CXX_STATIC_LIBRARY_LIN
   OBJECT_DIR = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = src/VectorMathAndObjects/CMakeFiles/VectorMathAndObjects.dir/VectorMathAndObjects.pdb
   TARGET_FILE = src/VectorMathAndObjects/libVectorMathAndObjects.a
-  TARGET_PDB = src/VectorMathAndObjects/libVectorMathAndObjects.pdb
+  TARGET_PDB = VectorMathAndObjects.a.dbg
 
 
 #############################################
@@ -182,6 +213,48 @@ build src/VectorMathAndObjects/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/VectorMathAndObjects/rebuild_cache: phony src/VectorMathAndObjects/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/VectorMathAndObjects/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/VectorMathAndObjects/CMakeFiles/install.util: CUSTOM_COMMAND src/VectorMathAndObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/VectorMathAndObjects && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/VectorMathAndObjects/install: phony src/VectorMathAndObjects/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/VectorMathAndObjects/CMakeFiles/install/local.util: CUSTOM_COMMAND src/VectorMathAndObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/VectorMathAndObjects && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/VectorMathAndObjects/install/local: phony src/VectorMathAndObjects/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/VectorMathAndObjects/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/VectorMathAndObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/VectorMathAndObjects && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/VectorMathAndObjects/install/strip: phony src/VectorMathAndObjects/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt
@@ -201,16 +274,12 @@ build src/InitHelp/CMakeFiles/InitHelp.dir/PolygonInputFileParser.cpp.o: CXX_COM
   FLAGS = -g
   OBJECT_DIR = src/InitHelp/CMakeFiles/InitHelp.dir
   OBJECT_FILE_DIR = src/InitHelp/CMakeFiles/InitHelp.dir
-  TARGET_COMPILE_PDB = src/InitHelp/CMakeFiles/InitHelp.dir/InitHelp.pdb
-  TARGET_PDB = src/InitHelp/libInitHelp.pdb
 
 build src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o: CXX_COMPILER__InitHelp_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/InitializeOpenGL.cpp || cmake_object_order_depends_target_InitHelp
   DEP_FILE = src/InitHelp/CMakeFiles/InitHelp.dir/InitializeOpenGL.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = src/InitHelp/CMakeFiles/InitHelp.dir
   OBJECT_FILE_DIR = src/InitHelp/CMakeFiles/InitHelp.dir
-  TARGET_COMPILE_PDB = src/InitHelp/CMakeFiles/InitHelp.dir/InitHelp.pdb
-  TARGET_PDB = src/InitHelp/libInitHelp.pdb
 
 
 # =============================================================================
@@ -225,9 +294,8 @@ build src/InitHelp/libInitHelp.a: CXX_STATIC_LIBRARY_LINKER__InitHelp_Debug src/
   OBJECT_DIR = src/InitHelp/CMakeFiles/InitHelp.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = src/InitHelp/CMakeFiles/InitHelp.dir/InitHelp.pdb
   TARGET_FILE = src/InitHelp/libInitHelp.a
-  TARGET_PDB = src/InitHelp/libInitHelp.pdb
+  TARGET_PDB = InitHelp.a.dbg
 
 
 #############################################
@@ -253,6 +321,48 @@ build src/InitHelp/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/InitHelp/rebuild_cache: phony src/InitHelp/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/InitHelp/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/InitHelp/CMakeFiles/install.util: CUSTOM_COMMAND src/InitHelp/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/InitHelp/install: phony src/InitHelp/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/InitHelp/CMakeFiles/install/local.util: CUSTOM_COMMAND src/InitHelp/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/InitHelp/install/local: phony src/InitHelp/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/InitHelp/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/InitHelp/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/InitHelp && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/InitHelp/install/strip: phony src/InitHelp/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt
@@ -273,8 +383,6 @@ build src/GLObjects/CMakeFiles/GLObjects.dir/EBO.cpp.o: CXX_COMPILER__GLObjects_
   INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects
   OBJECT_DIR = src/GLObjects/CMakeFiles/GLObjects.dir
   OBJECT_FILE_DIR = src/GLObjects/CMakeFiles/GLObjects.dir
-  TARGET_COMPILE_PDB = src/GLObjects/CMakeFiles/GLObjects.dir/GLObjects.pdb
-  TARGET_PDB = src/GLObjects/libGLObjects.pdb
 
 build src/GLObjects/CMakeFiles/GLObjects.dir/VAO.cpp.o: CXX_COMPILER__GLObjects_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/VAO.cpp || cmake_object_order_depends_target_GLObjects
   DEP_FILE = src/GLObjects/CMakeFiles/GLObjects.dir/VAO.cpp.o.d
@@ -282,8 +390,6 @@ build src/GLObjects/CMakeFiles/GLObjects.dir/VAO.cpp.o: CXX_COMPILER__GLObjects_
   INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects
   OBJECT_DIR = src/GLObjects/CMakeFiles/GLObjects.dir
   OBJECT_FILE_DIR = src/GLObjects/CMakeFiles/GLObjects.dir
-  TARGET_COMPILE_PDB = src/GLObjects/CMakeFiles/GLObjects.dir/GLObjects.pdb
-  TARGET_PDB = src/GLObjects/libGLObjects.pdb
 
 build src/GLObjects/CMakeFiles/GLObjects.dir/VBO.cpp.o: CXX_COMPILER__GLObjects_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/VBO.cpp || cmake_object_order_depends_target_GLObjects
   DEP_FILE = src/GLObjects/CMakeFiles/GLObjects.dir/VBO.cpp.o.d
@@ -291,8 +397,6 @@ build src/GLObjects/CMakeFiles/GLObjects.dir/VBO.cpp.o: CXX_COMPILER__GLObjects_
   INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/GLObjects
   OBJECT_DIR = src/GLObjects/CMakeFiles/GLObjects.dir
   OBJECT_FILE_DIR = src/GLObjects/CMakeFiles/GLObjects.dir
-  TARGET_COMPILE_PDB = src/GLObjects/CMakeFiles/GLObjects.dir/GLObjects.pdb
-  TARGET_PDB = src/GLObjects/libGLObjects.pdb
 
 
 # =============================================================================
@@ -307,9 +411,8 @@ build src/GLObjects/libGLObjects.a: CXX_STATIC_LIBRARY_LINKER__GLObjects_Debug s
   OBJECT_DIR = src/GLObjects/CMakeFiles/GLObjects.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = src/GLObjects/CMakeFiles/GLObjects.dir/GLObjects.pdb
   TARGET_FILE = src/GLObjects/libGLObjects.a
-  TARGET_PDB = src/GLObjects/libGLObjects.pdb
+  TARGET_PDB = GLObjects.a.dbg
 
 
 #############################################
@@ -335,6 +438,48 @@ build src/GLObjects/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/GLObjects/rebuild_cache: phony src/GLObjects/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/GLObjects/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/GLObjects/CMakeFiles/install.util: CUSTOM_COMMAND src/GLObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/GLObjects/install: phony src/GLObjects/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/GLObjects/CMakeFiles/install/local.util: CUSTOM_COMMAND src/GLObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/GLObjects/install/local: phony src/GLObjects/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/GLObjects/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/GLObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/GLObjects && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/GLObjects/install/strip: phony src/GLObjects/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt
@@ -356,8 +501,6 @@ build src/LML/CMakeFiles/LML.dir/matrix.cpp.o: CXX_COMPILER__LML_unscanned_Debug
   INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/LML
   OBJECT_DIR = src/LML/CMakeFiles/LML.dir
   OBJECT_FILE_DIR = src/LML/CMakeFiles/LML.dir
-  TARGET_COMPILE_PDB = src/LML/CMakeFiles/LML.dir/
-  TARGET_PDB = src/LML/libLML.pdb
 
 build src/LML/CMakeFiles/LML.dir/vector.cpp.o: CXX_COMPILER__LML_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/LML/vector.cpp || cmake_object_order_depends_target_LML
   DEFINES = -DLML_EXPORTS
@@ -366,8 +509,6 @@ build src/LML/CMakeFiles/LML.dir/vector.cpp.o: CXX_COMPILER__LML_unscanned_Debug
   INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/LML
   OBJECT_DIR = src/LML/CMakeFiles/LML.dir
   OBJECT_FILE_DIR = src/LML/CMakeFiles/LML.dir
-  TARGET_COMPILE_PDB = src/LML/CMakeFiles/LML.dir/
-  TARGET_PDB = src/LML/libLML.pdb
 
 build src/LML/CMakeFiles/LML.dir/matrix_transformations.cpp.o: CXX_COMPILER__LML_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/src/LML/matrix_transformations.cpp || cmake_object_order_depends_target_LML
   DEFINES = -DLML_EXPORTS
@@ -376,8 +517,6 @@ build src/LML/CMakeFiles/LML.dir/matrix_transformations.cpp.o: CXX_COMPILER__LML
   INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/LML
   OBJECT_DIR = src/LML/CMakeFiles/LML.dir
   OBJECT_FILE_DIR = src/LML/CMakeFiles/LML.dir
-  TARGET_COMPILE_PDB = src/LML/CMakeFiles/LML.dir/
-  TARGET_PDB = src/LML/libLML.pdb
 
 
 # =============================================================================
@@ -394,9 +533,8 @@ build src/LML/libLML.so: CXX_SHARED_LIBRARY_LINKER__LML_Debug src/LML/CMakeFiles
   PRE_LINK = :
   SONAME = libLML.so
   SONAME_FLAG = -Wl,-soname,
-  TARGET_COMPILE_PDB = src/LML/CMakeFiles/LML.dir/
   TARGET_FILE = src/LML/libLML.so
-  TARGET_PDB = src/LML/libLML.pdb
+  TARGET_PDB = LML.so.dbg
 
 
 #############################################
@@ -422,6 +560,48 @@ build src/LML/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/LML/rebuild_cache: phony src/LML/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/LML/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/LML/CMakeFiles/install.util: CUSTOM_COMMAND src/LML/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/LML && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/LML/install: phony src/LML/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/LML/CMakeFiles/install/local.util: CUSTOM_COMMAND src/LML/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/LML && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/LML/install/local: phony src/LML/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/LML/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/LML/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/LML && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/LML/install/strip: phony src/LML/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt
@@ -442,8 +622,6 @@ build src/3DObjects/CMakeFiles/3DObjects.dir/camera.cpp.o: CXX_COMPILER__3DObjec
   INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/src/3DObjects
   OBJECT_DIR = src/3DObjects/CMakeFiles/3DObjects.dir
   OBJECT_FILE_DIR = src/3DObjects/CMakeFiles/3DObjects.dir
-  TARGET_COMPILE_PDB = src/3DObjects/CMakeFiles/3DObjects.dir/3DObjects.pdb
-  TARGET_PDB = src/3DObjects/lib3DObjects.pdb
 
 
 # =============================================================================
@@ -458,9 +636,8 @@ build src/3DObjects/lib3DObjects.a: CXX_STATIC_LIBRARY_LINKER__3DObjects_Debug s
   OBJECT_DIR = src/3DObjects/CMakeFiles/3DObjects.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = src/3DObjects/CMakeFiles/3DObjects.dir/3DObjects.pdb
   TARGET_FILE = src/3DObjects/lib3DObjects.a
-  TARGET_PDB = src/3DObjects/lib3DObjects.pdb
+  TARGET_PDB = 3DObjects.a.dbg
 
 
 #############################################
@@ -486,6 +663,698 @@ build src/3DObjects/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/3DObjects/rebuild_cache: phony src/3DObjects/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/3DObjects/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/3DObjects/CMakeFiles/install.util: CUSTOM_COMMAND src/3DObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/3DObjects/install: phony src/3DObjects/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/3DObjects/CMakeFiles/install/local.util: CUSTOM_COMMAND src/3DObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/3DObjects/install/local: phony src/3DObjects/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/3DObjects/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/3DObjects/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/src/3DObjects && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/3DObjects/install/strip: phony src/3DObjects/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for uninstall
+
+build glfw/uninstall: phony glfw/CMakeFiles/uninstall
+
+
+#############################################
+# Utility command for edit_cache
+
+build glfw/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw && /usr/bin/ccmake -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build glfw/edit_cache: phony glfw/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glfw/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw && /usr/bin/cmake --regenerate-during-build -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glfw/rebuild_cache: phony glfw/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glfw/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glfw/CMakeFiles/install.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glfw/install: phony glfw/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glfw/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glfw/install/local: phony glfw/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glfw/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glfw/install/strip: phony glfw/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for glfw/CMakeFiles/uninstall
+
+build glfw/CMakeFiles/uninstall | ${cmake_ninja_workdir}glfw/CMakeFiles/uninstall: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw && /usr/bin/cmake -P /home/picklemustard/Documents/cpp_open_gl/build/glfw/cmake_uninstall.cmake
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/picklemustard/Documents/cpp_open_gl/glfw/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Order-only phony target for glfw
+
+build cmake_object_order_depends_target_glfw: phony || glfw/src/fractional-scale-v1-client-protocol-code.h glfw/src/fractional-scale-v1-client-protocol.h glfw/src/idle-inhibit-unstable-v1-client-protocol-code.h glfw/src/idle-inhibit-unstable-v1-client-protocol.h glfw/src/pointer-constraints-unstable-v1-client-protocol-code.h glfw/src/pointer-constraints-unstable-v1-client-protocol.h glfw/src/relative-pointer-unstable-v1-client-protocol-code.h glfw/src/relative-pointer-unstable-v1-client-protocol.h glfw/src/viewporter-client-protocol-code.h glfw/src/viewporter-client-protocol.h glfw/src/wayland-client-protocol-code.h glfw/src/wayland-client-protocol.h glfw/src/xdg-activation-v1-client-protocol-code.h glfw/src/xdg-activation-v1-client-protocol.h glfw/src/xdg-decoration-unstable-v1-client-protocol-code.h glfw/src/xdg-decoration-unstable-v1-client-protocol.h glfw/src/xdg-shell-client-protocol-code.h glfw/src/xdg-shell-client-protocol.h
+
+build glfw/src/CMakeFiles/glfw.dir/context.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/context.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/init.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/init.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/input.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/input.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/input.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/monitor.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/monitor.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/platform.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/platform.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/platform.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/vulkan.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/vulkan.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/window.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/window.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/egl_context.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/egl_context.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_init.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/null_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/null_init.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/null_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_window.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/null_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/null_window.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/null_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/posix_module.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/posix_module.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/posix_module.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/posix_time.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/posix_time.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/posix_time.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/posix_thread.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/x11_init.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/x11_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/x11_init.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/x11_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/x11_window.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/x11_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/x11_window.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/xkb_unicode.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/glx_context.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/glx_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/glx_context.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/wl_init.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/wl_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/wl_init.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/wl_monitor.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/wl_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/wl_monitor.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/wl_window.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/wl_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/wl_window.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/linux_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+build glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o: C_COMPILER__glfw_unscanned_Debug /home/picklemustard/Documents/cpp_open_gl/glfw/src/posix_poll.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
+  DEP_FILE = glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o.d
+  FLAGS = -g -std=c99 -fPIC -Wall
+  INCLUDES = -I/home/picklemustard/Documents/cpp_open_gl/glfw/include -I/home/picklemustard/Documents/cpp_open_gl/glfw/src -I/home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = glfw/src/CMakeFiles/glfw.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Link the static library glfw/src/libglfw3.a
+
+build glfw/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug glfw/src/CMakeFiles/glfw.dir/context.c.o glfw/src/CMakeFiles/glfw.dir/init.c.o glfw/src/CMakeFiles/glfw.dir/input.c.o glfw/src/CMakeFiles/glfw.dir/monitor.c.o glfw/src/CMakeFiles/glfw.dir/platform.c.o glfw/src/CMakeFiles/glfw.dir/vulkan.c.o glfw/src/CMakeFiles/glfw.dir/window.c.o glfw/src/CMakeFiles/glfw.dir/egl_context.c.o glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o glfw/src/CMakeFiles/glfw.dir/null_init.c.o glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o glfw/src/CMakeFiles/glfw.dir/null_window.c.o glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o glfw/src/CMakeFiles/glfw.dir/posix_module.c.o glfw/src/CMakeFiles/glfw.dir/posix_time.c.o glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o glfw/src/CMakeFiles/glfw.dir/x11_init.c.o glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o glfw/src/CMakeFiles/glfw.dir/x11_window.c.o glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o glfw/src/CMakeFiles/glfw.dir/glx_context.c.o glfw/src/CMakeFiles/glfw.dir/wl_init.c.o glfw/src/CMakeFiles/glfw.dir/wl_monitor.c.o glfw/src/CMakeFiles/glfw.dir/wl_window.c.o glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = glfw/src/CMakeFiles/glfw.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = glfw/src/libglfw3.a
+  TARGET_PDB = glfw3.a.dbg
+
+
+#############################################
+# Utility command for update_mappings
+
+build glfw/src/update_mappings: phony glfw/src/CMakeFiles/update_mappings
+
+
+#############################################
+# Utility command for edit_cache
+
+build glfw/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/ccmake -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build glfw/src/edit_cache: phony glfw/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glfw/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/cmake --regenerate-during-build -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glfw/src/rebuild_cache: phony glfw/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glfw/src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glfw/src/CMakeFiles/install.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glfw/src/install: phony glfw/src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glfw/src/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glfw/src/install/local: phony glfw/src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glfw/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/src/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glfw/src/install/strip: phony glfw/src/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for glfw/src/wayland-client-protocol.h
+
+build glfw/src/wayland-client-protocol.h | ${cmake_ninja_workdir}glfw/src/wayland-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/wayland.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/wayland.xml wayland-client-protocol.h
+  DESC = Generating wayland-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/wayland-client-protocol-code.h
+
+build glfw/src/wayland-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/wayland-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/wayland.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/wayland.xml wayland-client-protocol-code.h
+  DESC = Generating wayland-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/viewporter-client-protocol.h
+
+build glfw/src/viewporter-client-protocol.h | ${cmake_ninja_workdir}glfw/src/viewporter-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/viewporter.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/viewporter.xml viewporter-client-protocol.h
+  DESC = Generating viewporter-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/viewporter-client-protocol-code.h
+
+build glfw/src/viewporter-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/viewporter-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/viewporter.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/viewporter.xml viewporter-client-protocol-code.h
+  DESC = Generating viewporter-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/xdg-shell-client-protocol.h
+
+build glfw/src/xdg-shell-client-protocol.h | ${cmake_ninja_workdir}glfw/src/xdg-shell-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-shell.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-shell.xml xdg-shell-client-protocol.h
+  DESC = Generating xdg-shell-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/xdg-shell-client-protocol-code.h
+
+build glfw/src/xdg-shell-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/xdg-shell-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-shell.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-shell.xml xdg-shell-client-protocol-code.h
+  DESC = Generating xdg-shell-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/idle-inhibit-unstable-v1-client-protocol.h
+
+build glfw/src/idle-inhibit-unstable-v1-client-protocol.h | ${cmake_ninja_workdir}glfw/src/idle-inhibit-unstable-v1-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/idle-inhibit-unstable-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/idle-inhibit-unstable-v1.xml idle-inhibit-unstable-v1-client-protocol.h
+  DESC = Generating idle-inhibit-unstable-v1-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/idle-inhibit-unstable-v1-client-protocol-code.h
+
+build glfw/src/idle-inhibit-unstable-v1-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/idle-inhibit-unstable-v1-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/idle-inhibit-unstable-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/idle-inhibit-unstable-v1.xml idle-inhibit-unstable-v1-client-protocol-code.h
+  DESC = Generating idle-inhibit-unstable-v1-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/pointer-constraints-unstable-v1-client-protocol.h
+
+build glfw/src/pointer-constraints-unstable-v1-client-protocol.h | ${cmake_ninja_workdir}glfw/src/pointer-constraints-unstable-v1-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/pointer-constraints-unstable-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/pointer-constraints-unstable-v1.xml pointer-constraints-unstable-v1-client-protocol.h
+  DESC = Generating pointer-constraints-unstable-v1-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/pointer-constraints-unstable-v1-client-protocol-code.h
+
+build glfw/src/pointer-constraints-unstable-v1-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/pointer-constraints-unstable-v1-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/pointer-constraints-unstable-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/pointer-constraints-unstable-v1.xml pointer-constraints-unstable-v1-client-protocol-code.h
+  DESC = Generating pointer-constraints-unstable-v1-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/relative-pointer-unstable-v1-client-protocol.h
+
+build glfw/src/relative-pointer-unstable-v1-client-protocol.h | ${cmake_ninja_workdir}glfw/src/relative-pointer-unstable-v1-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/relative-pointer-unstable-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/relative-pointer-unstable-v1.xml relative-pointer-unstable-v1-client-protocol.h
+  DESC = Generating relative-pointer-unstable-v1-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/relative-pointer-unstable-v1-client-protocol-code.h
+
+build glfw/src/relative-pointer-unstable-v1-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/relative-pointer-unstable-v1-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/relative-pointer-unstable-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/relative-pointer-unstable-v1.xml relative-pointer-unstable-v1-client-protocol-code.h
+  DESC = Generating relative-pointer-unstable-v1-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/fractional-scale-v1-client-protocol.h
+
+build glfw/src/fractional-scale-v1-client-protocol.h | ${cmake_ninja_workdir}glfw/src/fractional-scale-v1-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/fractional-scale-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/fractional-scale-v1.xml fractional-scale-v1-client-protocol.h
+  DESC = Generating fractional-scale-v1-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/fractional-scale-v1-client-protocol-code.h
+
+build glfw/src/fractional-scale-v1-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/fractional-scale-v1-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/fractional-scale-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/fractional-scale-v1.xml fractional-scale-v1-client-protocol-code.h
+  DESC = Generating fractional-scale-v1-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/xdg-activation-v1-client-protocol.h
+
+build glfw/src/xdg-activation-v1-client-protocol.h | ${cmake_ninja_workdir}glfw/src/xdg-activation-v1-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-activation-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-activation-v1.xml xdg-activation-v1-client-protocol.h
+  DESC = Generating xdg-activation-v1-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/xdg-activation-v1-client-protocol-code.h
+
+build glfw/src/xdg-activation-v1-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/xdg-activation-v1-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-activation-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-activation-v1.xml xdg-activation-v1-client-protocol-code.h
+  DESC = Generating xdg-activation-v1-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/xdg-decoration-unstable-v1-client-protocol.h
+
+build glfw/src/xdg-decoration-unstable-v1-client-protocol.h | ${cmake_ninja_workdir}glfw/src/xdg-decoration-unstable-v1-client-protocol.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-decoration-unstable-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner client-header /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-decoration-unstable-v1.xml xdg-decoration-unstable-v1-client-protocol.h
+  DESC = Generating xdg-decoration-unstable-v1-client-protocol.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/xdg-decoration-unstable-v1-client-protocol-code.h
+
+build glfw/src/xdg-decoration-unstable-v1-client-protocol-code.h | ${cmake_ninja_workdir}glfw/src/xdg-decoration-unstable-v1-client-protocol-code.h: CUSTOM_COMMAND /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-decoration-unstable-v1.xml
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/src && /usr/bin/wayland-scanner private-code /home/picklemustard/Documents/cpp_open_gl/glfw/deps/wayland/xdg-decoration-unstable-v1.xml xdg-decoration-unstable-v1-client-protocol-code.h
+  DESC = Generating xdg-decoration-unstable-v1-client-protocol-code.h
+  restat = 1
+
+
+#############################################
+# Custom command for glfw/src/CMakeFiles/update_mappings
+
+build glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}glfw/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/glfw/src && /usr/bin/cmake -P /home/picklemustard/Documents/cpp_open_gl/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+  DESC = Updating gamepad mappings from upstream repository
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/picklemustard/Documents/cpp_open_gl/glfw/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for docs
+
+build glfw/docs/docs: phony glfw/docs/html/index.html
+
+
+#############################################
+# Utility command for edit_cache
+
+build glfw/docs/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/docs && /usr/bin/ccmake -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build glfw/docs/edit_cache: phony glfw/docs/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build glfw/docs/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/docs && /usr/bin/cmake --regenerate-during-build -S/home/picklemustard/Documents/cpp_open_gl -B/home/picklemustard/Documents/cpp_open_gl/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build glfw/docs/rebuild_cache: phony glfw/docs/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build glfw/docs/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build glfw/docs/CMakeFiles/install.util: CUSTOM_COMMAND glfw/docs/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/docs && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build glfw/docs/install: phony glfw/docs/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build glfw/docs/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/docs/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/docs && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build glfw/docs/install/local: phony glfw/docs/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build glfw/docs/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/docs/all
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/docs && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build glfw/docs/install/strip: phony glfw/docs/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for glfw/docs/html/index.html
+
+build glfw/docs/html/index.html | ${cmake_ninja_workdir}glfw/docs/html/index.html: CUSTOM_COMMAND glfw/docs/Doxyfile /home/picklemustard/Documents/cpp_open_gl/glfw/include/GLFW/glfw3.h /home/picklemustard/Documents/cpp_open_gl/glfw/include/GLFW/glfw3native.h /home/picklemustard/Documents/cpp_open_gl/glfw/docs/main.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/news.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/quick.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/moving.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/compile.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/build.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/intro.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/context.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/monitor.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/window.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/input.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/vulkan.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/compat.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/internal.md /home/picklemustard/Documents/cpp_open_gl/glfw/docs/DoxygenLayout.xml /home/picklemustard/Documents/cpp_open_gl/glfw/docs/header.html /home/picklemustard/Documents/cpp_open_gl/glfw/docs/footer.html /home/picklemustard/Documents/cpp_open_gl/glfw/docs/extra.css /home/picklemustard/Documents/cpp_open_gl/glfw/docs/spaces.svg
+  COMMAND = cd /home/picklemustard/Documents/cpp_open_gl/build/glfw/docs && /usr/bin/doxygen
+  DESC = Generating HTML documentation
+  restat = 1
+
 # =============================================================================
 # Target aliases.
 
@@ -499,6 +1368,10 @@ build LML: phony src/LML/libLML.so
 
 build VectorMathAndObjects: phony src/VectorMathAndObjects/libVectorMathAndObjects.a
 
+build docs: phony glfw/docs/docs
+
+build glfw: phony glfw/src/libglfw3.a
+
 build lib3DObjects.a: phony src/3DObjects/lib3DObjects.a
 
 build libGLObjects.a: phony src/GLObjects/libGLObjects.a
@@ -509,6 +1382,12 @@ build libLML.so: phony src/LML/libLML.so
 
 build libVectorMathAndObjects.a: phony src/VectorMathAndObjects/libVectorMathAndObjects.a
 
+build libglfw3.a: phony glfw/src/libglfw3.a
+
+build uninstall: phony glfw/uninstall
+
+build update_mappings: phony glfw/src/update_mappings
+
 # =============================================================================
 # Folder targets.
 
@@ -517,7 +1396,28 @@ build libVectorMathAndObjects.a: phony src/VectorMathAndObjects/libVectorMathAnd
 #############################################
 # Folder: /home/picklemustard/Documents/cpp_open_gl/build
 
-build all: phony opengl_exploration src/VectorMathAndObjects/all src/InitHelp/all src/GLObjects/all src/LML/all src/3DObjects/all
+build all: phony opengl_exploration src/VectorMathAndObjects/all src/InitHelp/all src/GLObjects/all src/LML/all src/3DObjects/all glfw/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/picklemustard/Documents/cpp_open_gl/build/glfw
+
+build glfw/all: phony glfw/src/all glfw/docs/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/picklemustard/Documents/cpp_open_gl/build/glfw/docs
+
+build glfw/docs/all: phony glfw/docs/docs
+
+# =============================================================================
+
+#############################################
+# Folder: /home/picklemustard/Documents/cpp_open_gl/build/glfw/src
+
+build glfw/src/all: phony glfw/src/libglfw3.a
 
 # =============================================================================
 
@@ -555,25 +1455,20 @@ build src/LML/all: phony src/LML/libLML.so
 build src/VectorMathAndObjects/all: phony src/VectorMathAndObjects/libVectorMathAndObjects.a
 
 # =============================================================================
-# Unknown Build Time Dependencies.
-# Tell Ninja that they may appear as side effects of build rules
-# otherwise ordered by order-only dependencies.
-
-# =============================================================================
 # Built-in targets
 
 
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/3DObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/LML/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/CMakeLists.txt /usr/share/cmake/Modules/CMakeCCompiler.cmake.in /usr/share/cmake/Modules/CMakeCCompilerABI.c /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake/Modules/CMakeDetermineSystem.cmake /usr/share/cmake/Modules/CMakeFindBinUtils.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake/Modules/CMakeSystem.cmake.in /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CMakeTestCCompiler.cmake /usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Internal/FeatureTesting.cmake /usr/share/cmake/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.2/CMakeCCompiler.cmake CMakeFiles/3.28.2/CMakeCXXCompiler.cmake CMakeFiles/3.28.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/glfw/CMake/cmake_uninstall.cmake.in /home/picklemustard/Documents/cpp_open_gl/glfw/CMake/glfw3.pc.in /home/picklemustard/Documents/cpp_open_gl/glfw/CMake/glfw3Config.cmake.in /home/picklemustard/Documents/cpp_open_gl/glfw/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/glfw/docs/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/glfw/docs/Doxyfile.in /home/picklemustard/Documents/cpp_open_gl/glfw/src/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/3DObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/LML/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/CMakeLists.txt /usr/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeDependentOption.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckFunctionExists.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckIncludeFiles.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindDoxygen.cmake /usr/share/cmake/Modules/FindFontconfig.cmake /usr/share/cmake/Modules/FindFreetype.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindX11.cmake /usr/share/cmake/Modules/GNUInstallDirs.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.28.2/CMakeCCompiler.cmake CMakeFiles/3.28.2/CMakeCXXCompiler.cmake CMakeFiles/3.28.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/3DObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/LML/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/CMakeLists.txt /usr/share/cmake/Modules/CMakeCCompiler.cmake.in /usr/share/cmake/Modules/CMakeCCompilerABI.c /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake/Modules/CMakeDetermineSystem.cmake /usr/share/cmake/Modules/CMakeFindBinUtils.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake/Modules/CMakeSystem.cmake.in /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CMakeTestCCompiler.cmake /usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake/Modules/Internal/FeatureTesting.cmake /usr/share/cmake/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.2/CMakeCCompiler.cmake CMakeFiles/3.28.2/CMakeCXXCompiler.cmake CMakeFiles/3.28.2/CMakeSystem.cmake: phony
+build /home/picklemustard/Documents/cpp_open_gl/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/glfw/CMake/cmake_uninstall.cmake.in /home/picklemustard/Documents/cpp_open_gl/glfw/CMake/glfw3.pc.in /home/picklemustard/Documents/cpp_open_gl/glfw/CMake/glfw3Config.cmake.in /home/picklemustard/Documents/cpp_open_gl/glfw/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/glfw/docs/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/glfw/docs/Doxyfile.in /home/picklemustard/Documents/cpp_open_gl/glfw/src/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/3DObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/GLObjects/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/InitHelp/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/LML/CMakeLists.txt /home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects/CMakeLists.txt /usr/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeDependentOption.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckFunctionExists.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckIncludeFiles.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindDoxygen.cmake /usr/share/cmake/Modules/FindFontconfig.cmake /usr/share/cmake/Modules/FindFreetype.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindX11.cmake /usr/share/cmake/Modules/GNUInstallDirs.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.28.2/CMakeCCompiler.cmake CMakeFiles/3.28.2/CMakeCXXCompiler.cmake CMakeFiles/3.28.2/CMakeSystem.cmake: phony
 
 
 #############################################
