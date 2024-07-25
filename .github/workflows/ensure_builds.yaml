@@ -31,6 +31,9 @@ jobs:
           ninja: true
           cppcheck: true
 
+      - name: Print directory contents
+        run: ls
+
       - name: Move to Build Folder
         run: cd build
 
