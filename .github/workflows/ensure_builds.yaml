@@ -37,6 +37,9 @@ jobs:
       - name: Move to Build Folder
         run: cd build
 
+      - name: Print Directory
+        run: pwd
+
       - name: Generate Build Files
         run: cmake ..
 
