@@ -35,6 +35,7 @@ target_include_directories(${PROJECT_NAME}
     src/GLObjects
     src/LML
     src/3DObjects
+    glfw
 )
 
 target_link_directories(${PROJECT_NAME}
@@ -43,6 +44,7 @@ target_link_directories(${PROJECT_NAME}
     PRIVATE src/GLObjects
     PRIVATE src/LML
     PRIVATE src/3DObjects
+    PRIVATE glfw
 )
 
 target_link_libraries(${PROJECT_NAME} glfw GL GLEW InitHelp VectorMathAndObjects GLObjects LML 3DObjects)
