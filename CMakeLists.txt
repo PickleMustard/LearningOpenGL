@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.28.0)
 project(opengl_exploration VERSION 0.1.0)
 #include(ExternalProject)
+include(cmake/CPM.make)
+
+#find_package(glfw3 3.4 REQUIRED)
 
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libs)
