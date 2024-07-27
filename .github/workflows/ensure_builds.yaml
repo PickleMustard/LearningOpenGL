@@ -53,7 +53,7 @@ jobs:
           cppcheck: true
 
       - name: Setup Conan
-        uses: actions/setup-conan@v1
+        uses: hankhsu1996/setup-conan@v1
         with:
           conan-version: 2.4
           cache-dependencies: true
