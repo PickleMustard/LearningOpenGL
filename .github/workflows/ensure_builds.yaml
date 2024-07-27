@@ -58,8 +58,9 @@ jobs:
           conan-version: 2.4
           cache-dependencies: true
           cache-tool: true
-      #- name: Create Conan Profile
-        #run: conan profile detect --force
+
+      - name: Create Conan Profile
+        run: conan profile detect
 
       - name: Install Conan Packages
         run: conan install . -c tools.system.package_manager:mode=install --build missing
