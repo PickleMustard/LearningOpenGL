@@ -5,6 +5,11 @@ on:
   push:
     branches: [main]
 
+env:
+  CONAN_SYSREQUIRES_MODE: enabled
+  CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
+  CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
+
 jobs:
   tests:
     name: Build Linux and Windows
@@ -17,14 +22,29 @@ jobs:
           - ubuntu-latest
         compiler:
           - llvm
-          - gcc
+          - gcc-11
+        generator:
+          - "Ninja Multi-Config"
+        build_type:
+          - Debug
+        developer_mode:
+          - ON
 
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Setup cache
+        uses: ./.github/actions/setup_cache
+        with:
+          compiler: ${{ matrix.compiler }}
+          build_type: ${{ matrix.build_type }}
+          developer_mode: ${{ matrix.developer_mode }}
+          generator: ${{ matrix.generator }}
+
+
       - name: Setup Cpp
-        uses: aminya/setup-cpp@v1
+        uses: aminya/setup-cpp
         with:
           compiler: ${{ matrix.compiler }}
           conan: true

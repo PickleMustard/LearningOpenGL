@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.28.0)
 project(opengl_exploration VERSION 0.1.0)
 #include(ExternalProject)
-include(cmake/CPM.make)
+#include(cmake/CPM.make)
 
 #find_package(glfw3 3.4 REQUIRED)
 
