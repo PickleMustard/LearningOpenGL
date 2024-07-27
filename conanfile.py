@@ -6,7 +6,8 @@ class GraphicsLibraries(ConanFile):
 
     def requirements(self):
         self.requires("opengl/system")
-        self.requires("xorg/system")
+        if self.settings.os == "Linux" or self.settings.os == "FreeBSD":
+            self.requires("xorg/system")
         self.requires("glew/2.2.0")
         self.requires("glfw/[>=3.0]")
 
