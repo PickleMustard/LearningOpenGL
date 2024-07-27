@@ -58,7 +58,7 @@ jobs:
           cache-tool: true
 
       - name: Create Conan Profile
-        run: [ -f ~/.conan2/profiles/default ] && echo "Default Profile Exists" || conan profile detect
+        run: test -f ~/.conan2/profiles/default && echo "Default Profile Exists" || conan profile detect
 
       - name: Install Conan Packages
         run: conan install . -c tools.system.package_manager:sudo=true -c tools.system.package_manager:mode=install --build missing
