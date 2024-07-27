@@ -32,8 +32,8 @@ jobs:
           ninja: true
           cppcheck: true
 
-      - name: Create Conan Profile
-        run: conan profile detect --force
+      #- name: Create Conan Profile
+        #run: conan profile detect --force
 
       - name: Install Conan Packages
         run: conan install .
