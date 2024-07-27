@@ -43,15 +43,21 @@ jobs:
       #    generator: ${{ matrix.generator }}
 
 
+
       - name: Setup Cpp
         uses: aminya/setup-cpp@v1
         with:
           compiler: ${{ matrix.compiler }}
-          conan: true
           cmake: true
           ninja: true
           cppcheck: true
 
+      - name: Setup Conan
+        uses: actions/setup-conan@v1
+        with:
+          conan-version: 2.4
+          cache-dependencies: true
+          cache-tool: true
       #- name: Create Conan Profile
         #run: conan profile detect --force
 
