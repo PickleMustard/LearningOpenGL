@@ -1,4 +1,5 @@
 from conan import ConanFile
+from conan.tools.system.package_manager import Apt, Yum, Zypper, Pkg, Chocolatey
 
 class GraphicsLibraries(ConanFile):
     build_policy = "missing"

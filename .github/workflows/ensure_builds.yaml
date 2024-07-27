@@ -42,8 +42,6 @@ jobs:
       #    developer_mode: ${{ matrix.developer_mode }}
       #    generator: ${{ matrix.generator }}
 
-
-
       - name: Setup Cpp
         uses: aminya/setup-cpp@v1
         with:
@@ -63,7 +61,7 @@ jobs:
         run: conan profile detect
 
       - name: Install Conan Packages
-        run: conan install . -c tools.system.package_manager:mode=install --build missing
+        run: conan install . -c tools.system.package_manager:sudo=true -c tools.system.package_manager:mode=install --build missing
 
       - name: Test CMake Build
         run: cmake -B build -S .
