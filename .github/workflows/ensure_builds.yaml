@@ -34,13 +34,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Setup cache
-        uses: ./.github/actions/setup_cache
-        with:
-          compiler: ${{ matrix.compiler }}
-          build_type: ${{ matrix.build_type }}
-          developer_mode: ${{ matrix.developer_mode }}
-          generator: ${{ matrix.generator }}
+      #- name: Setup cache
+      #  uses: ./.github/actions/setup_cache
+      #  with:
+      #    compiler: ${{ matrix.compiler }}
+      #    build_type: ${{ matrix.build_type }}
+      #    developer_mode: ${{ matrix.developer_mode }}
+      #    generator: ${{ matrix.generator }}
 
 
       - name: Setup Cpp
