@@ -23,14 +23,14 @@ add_executable(opengl_exploration
 
 #ExternalProject_Get_Property(glfw install_dir)
 
-#add_dependencies(${PROJECT_NAME} glfw)
+add_dependencies(${PROJECT_NAME} glfw)
+add_dependencies(${PROJECT_NAME} GLEW)
 
 add_subdirectory(src/VectorMathAndObjects)
 add_subdirectory(src/InitHelp)
 add_subdirectory(src/GLObjects)
 add_subdirectory(src/LML)
 add_subdirectory(src/3DObjects)
-add_subdirectory(glfw)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC src/InitHelp
@@ -38,7 +38,6 @@ target_include_directories(${PROJECT_NAME}
     src/GLObjects
     src/LML
     src/3DObjects
-    glfw
 )
 
 target_link_directories(${PROJECT_NAME}
@@ -47,7 +46,6 @@ target_link_directories(${PROJECT_NAME}
     PRIVATE src/GLObjects
     PRIVATE src/LML
     PRIVATE src/3DObjects
-    PRIVATE glfw
 )
 
 target_link_libraries(${PROJECT_NAME} glfw GL GLEW InitHelp VectorMathAndObjects GLObjects LML 3DObjects)
