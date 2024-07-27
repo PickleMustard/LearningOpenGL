@@ -23,8 +23,8 @@ add_executable(opengl_exploration
 
 #ExternalProject_Get_Property(glfw install_dir)
 
-add_dependencies(${PROJECT_NAME} glfw)
-add_dependencies(${PROJECT_NAME} GLEW)
+#add_dependencies(${PROJECT_NAME} glfw)
+#add_dependencies(${PROJECT_NAME} GLEW)
 
 add_subdirectory(src/VectorMathAndObjects)
 add_subdirectory(src/InitHelp)
