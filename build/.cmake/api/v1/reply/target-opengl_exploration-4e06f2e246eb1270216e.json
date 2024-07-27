@@ -34,13 +34,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 40,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 48,
+				"line" : 50,
 				"parent" : 0
 			},
 			{
@@ -90,6 +90,10 @@
 				{
 					"backtrace" : 7,
 					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/3DObjects"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/glfw"
 				},
 				{
 					"backtrace" : 3,
@@ -166,7 +170,12 @@
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects:/home/picklemustard/Documents/cpp_open_gl/src/LML:/home/picklemustard/Documents/cpp_open_gl/src/3DObjects:/home/picklemustard/Documents/cpp_open_gl/build/src/LML",
+				"backtrace" : 2,
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/glfw",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects:/home/picklemustard/Documents/cpp_open_gl/src/LML:/home/picklemustard/Documents/cpp_open_gl/src/3DObjects:/home/picklemustard/Documents/cpp_open_gl/glfw:/home/picklemustard/Documents/cpp_open_gl/build/src/LML",
 				"role" : "libraries"
 			},
 			{

@@ -1,0 +1,68 @@
+name: Ensure_Build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+env:
+  CONAN_SYSREQUIRES_MODE: enabled
+  CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
+  CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
+
+jobs:
+  tests:
+    name: Build Linux and Windows
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - windows-latest
+          - ubuntu-latest
+        compiler:
+          - llvm
+          - gcc-11
+        generator:
+          - "Ninja Multi-Config"
+        build_type:
+          - Debug
+        developer_mode:
+          - ON
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      #- name: Setup cache
+      #  uses: actions/cache@v4
+      #  with:
+      #    compiler: ${{ matrix.compiler }}
+      #    build_type: ${{ matrix.build_type }}
+      #    developer_mode: ${{ matrix.developer_mode }}
+      #    generator: ${{ matrix.generator }}
+
+      - name: Setup Cpp
+        uses: aminya/setup-cpp@v1
+        with:
+          compiler: ${{ matrix.compiler }}
+          cmake: true
+          ninja: true
+          cppcheck: true
+
+      - name: Setup Conan
+        uses: hankhsu1996/setup-conan@v1
+        with:
+          conan-version: 2.4
+          cache-dependencies: true
+          cache-tool: true
+
+      - name: Create Conan Profile
+        run: test -f ~/.conan2/profiles/default && echo "Default Profile Exists" || conan profile detect
+
+      - name: Install Conan Packages
+        run: conan install . -c tools.system.package_manager:sudo=true -c tools.system.package_manager:mode=install --build missing
+
+      - name: Test CMake Build
+        run: cmake -B build -S .
+

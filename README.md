@@ -1,4 +1,5 @@
 # Learning OpenGL
+![code coverage badge](https://github.com/PickleMustard/LearningOpenGL/actions/workflows/ci.yaml/badge.svg)
 
 The goal of this project is to get an understanding of the OpenGL API. The end product I'm aiming for is to be able to specify generic objects
 and create them or to specify an object in a .obj file and be able to import and render it.

@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.28.0)
 project(opengl_exploration VERSION 0.1.0)
 #include(ExternalProject)
+#include(cmake/CPM.make)
+
+#find_package(glfw3 3.4 REQUIRED)
 
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libs)
@@ -21,13 +24,13 @@ add_executable(opengl_exploration
 #ExternalProject_Get_Property(glfw install_dir)
 
 #add_dependencies(${PROJECT_NAME} glfw)
+#add_dependencies(${PROJECT_NAME} GLEW)
 
 add_subdirectory(src/VectorMathAndObjects)
 add_subdirectory(src/InitHelp)
 add_subdirectory(src/GLObjects)
 add_subdirectory(src/LML)
 add_subdirectory(src/3DObjects)
-add_subdirectory(glfw)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC src/InitHelp
