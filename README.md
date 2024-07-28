@@ -9,17 +9,15 @@ As such, I am avoiding using libraries that implement vectors, matrices, linear 
 In future, going back through and comparing what I build to the OpenGL GLM library might help to bridge gaps in understanding.
 
 ## Usage
-** Note: Only tested on Linux with yum package manager **
+** Note: Fully tested on Fedora Linux. Other systems configured in CI should work**
 ### Building from scratch
-1. Ensure the following packages are installed:
-    - glfw
-    - glew
-    - GL
-    - OpenGL
-    - LML
-2. At the top level directory, run the following command
+1. The package manager Conan is used to ensure the environment is correct. At the top level directory, run the following command:
     ```bash
-    cmake build
+    conan install . -c tools.system.package_manager:sudo=true -c tools.system.package_manager:mode=install --build missing --output-folder ./conan_env
+    ```
+2. Once the packages have been installed, at the top level directory, run the following command
+    ```bash
+    cmake build -S . -B ./build
     ```
 3. If successful, it will have built the executable file under the /build directory
 
