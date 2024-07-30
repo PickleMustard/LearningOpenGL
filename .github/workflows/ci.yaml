@@ -61,11 +61,16 @@ jobs:
         run: test -f ~/.conan2/profiles/default && echo "Default Profile Exists" || conan profile detect
 
       - name: Install Conan Packages
-        run: conan install . -c tools.system.package_manager:sudo=true -c tools.system.package_manager:mode=install --build missing --output-folder conan_src
+        run: conan install . -c tools.system.package_manager:sudo=true -c tools.system.package_manager:mode=install --build missing --output-folder build
 
       - name: Test CMake Build
-        run: cmake -B build -S .
+        run: cd build && cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_SH=CMAKE_SH-NOTFOUND -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
+        if: ${{ matrix.os }} == "ubuntu-latest"
+
+      - name: Test CMake Build Windows
+        run: cd build && cmake .. -DCMAKE_TOOLCHAIN_FILE=../../conan_toolchain.cmake -DCMAKE_SH=CMAKE_SH-NOTFOUND -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
+        if: ${{ matrix.os }} == "windows-latest"
 
       - name: Fully build
-        run: cmake --build ./build
+        run: cd build && cmake --build .
 
