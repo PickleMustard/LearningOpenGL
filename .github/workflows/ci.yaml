@@ -64,7 +64,7 @@ jobs:
         run: conan install . -c tools.system.package_manager:sudo=true -c tools.system.package_manager:mode=install --build missing --output-folder build
 
       - name: Test CMake Build
-        run: cd build && cmake .. -DCMAKE_TOOLCHAIN_FILE=../../conan_toolchain.cmake -DCMAKE_SH=CMAKE_SH-NOTFOUND -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
+        run: cd build && cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_SH=CMAKE_SH-NOTFOUND -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
 
       #- name: Fully build
         #run: cmake --build ./build
