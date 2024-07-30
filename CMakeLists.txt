@@ -26,6 +26,8 @@ add_executable(opengl_exploration
 #add_dependencies(${PROJECT_NAME} glfw)
 #add_dependencies(${PROJECT_NAME} GLEW)
 
+#find_package(glfw REQUIRED)
+
 add_subdirectory(src/VectorMathAndObjects)
 add_subdirectory(src/InitHelp)
 add_subdirectory(src/GLObjects)

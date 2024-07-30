@@ -1,4 +1,4 @@
-# Install script for directory: /home/picklemustard/Documents/cpp_open_gl/src/InitHelp
+# Install script for directory: /home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/InitHelp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -17,8 +17,7 @@
 		],
 		"files" : 
 		[
-			"CMakeLists.txt",
-			"glfw/src/CMakeLists.txt"
+			"CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -28,40 +27,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 8,
+				"line" : 11,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 41,
+				"line" : 45,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 50,
+				"line" : 53,
 				"parent" : 0
-			},
-			{
-				"file" : 1
-			},
-			{
-				"command" : 2,
-				"file" : 1,
-				"line" : 226,
-				"parent" : 4
-			},
-			{
-				"command" : 2,
-				"file" : 1,
-				"line" : 238,
-				"parent" : 4
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 32,
+				"line" : 37,
 				"parent" : 0
 			}
 		]
@@ -72,32 +56,24 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 7,
-					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/InitHelp"
+					"backtrace" : 4,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/InitHelp"
 				},
 				{
-					"backtrace" : 7,
-					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects"
+					"backtrace" : 4,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/VectorMathAndObjects"
 				},
 				{
-					"backtrace" : 7,
-					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/GLObjects"
+					"backtrace" : 4,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/GLObjects"
 				},
 				{
-					"backtrace" : 7,
-					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/LML"
+					"backtrace" : 4,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/LML"
 				},
 				{
-					"backtrace" : 7,
-					"path" : "/home/picklemustard/Documents/cpp_open_gl/src/3DObjects"
-				},
-				{
-					"backtrace" : 7,
-					"path" : "/home/picklemustard/Documents/cpp_open_gl/glfw"
-				},
-				{
-					"backtrace" : 3,
-					"path" : "/home/picklemustard/Documents/cpp_open_gl/glfw/include"
+					"backtrace" : 4,
+					"path" : "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/3DObjects"
 				}
 			],
 			"language" : "CXX",
@@ -129,10 +105,6 @@
 		{
 			"backtrace" : 3,
 			"id" : "3DObjects::@f077a888000d4da8eaa7"
-		},
-		{
-			"backtrace" : 3,
-			"id" : "glfw::@12507ebf64a5258d241e"
 		}
 	],
 	"id" : "opengl_exploration::@6890427a1f51a3e7e1df",
@@ -146,41 +118,36 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/src/InitHelp",
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/InitHelp",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects",
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/VectorMathAndObjects",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/src/GLObjects",
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/GLObjects",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/src/LML",
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/LML",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/src/3DObjects",
+				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/3DObjects",
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 2,
-				"fragment" : "-L/home/picklemustard/Documents/cpp_open_gl/glfw",
-				"role" : "libraryPath"
-			},
-			{
-				"fragment" : "-Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/src/GLObjects:/home/picklemustard/Documents/cpp_open_gl/src/LML:/home/picklemustard/Documents/cpp_open_gl/src/3DObjects:/home/picklemustard/Documents/cpp_open_gl/glfw:/home/picklemustard/Documents/cpp_open_gl/build/src/LML",
+				"fragment" : "-Wl,-rpath,/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/InitHelp:/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/VectorMathAndObjects:/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/GLObjects:/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/LML:/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/src/3DObjects:/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/build/src/LML",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "glfw/src/libglfw3.a",
+				"fragment" : "-lglfw",
 				"role" : "libraries"
 			},
 			{
@@ -216,20 +183,6 @@
 			{
 				"backtrace" : 3,
 				"fragment" : "src/3DObjects/lib3DObjects.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "/usr/lib64/librt.a",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lm",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 6,
-				"fragment" : "-ldl",
 				"role" : "libraries"
 			}
 		],

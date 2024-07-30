@@ -12,10 +12,8 @@
 						2,
 						3,
 						4,
-						5,
-						6
+						5
 					],
-					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
@@ -25,7 +23,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						7
+						5
 					]
 				},
 				{
@@ -102,70 +100,12 @@
 					[
 						0
 					]
-				},
-				{
-					"build" : "glfw",
-					"childIndexes" : 
-					[
-						7,
-						8
-					],
-					"hasInstallRule" : true,
-					"jsonFile" : "directory-glfw-d0205cbe3777c14bff74.json",
-					"minimumCMakeVersion" : 
-					{
-						"string" : "3.4"
-					},
-					"parentIndex" : 0,
-					"projectIndex" : 1,
-					"source" : "glfw",
-					"targetIndexes" : 
-					[
-						8
-					]
-				},
-				{
-					"build" : "glfw/src",
-					"hasInstallRule" : true,
-					"jsonFile" : "directory-glfw.src-b72b0e2bd52410a405f3.json",
-					"minimumCMakeVersion" : 
-					{
-						"string" : "3.4"
-					},
-					"parentIndex" : 6,
-					"projectIndex" : 1,
-					"source" : "glfw/src",
-					"targetIndexes" : 
-					[
-						6,
-						9
-					]
-				},
-				{
-					"build" : "glfw/docs",
-					"hasInstallRule" : true,
-					"jsonFile" : "directory-glfw.docs-131a04073f85256fd9ff.json",
-					"minimumCMakeVersion" : 
-					{
-						"string" : "3.4"
-					},
-					"parentIndex" : 6,
-					"projectIndex" : 1,
-					"source" : "glfw/docs",
-					"targetIndexes" : 
-					[
-						5
-					]
 				}
 			],
 			"name" : "",
 			"projects" : 
 			[
 				{
-					"childIndexes" : 
-					[
-						1
-					],
 					"directoryIndexes" : 
 					[
 						0,
@@ -183,24 +123,7 @@
 						2,
 						3,
 						4,
-						7
-					]
-				},
-				{
-					"directoryIndexes" : 
-					[
-						6,
-						7,
-						8
-					],
-					"name" : "GLFW",
-					"parentIndex" : 0,
-					"targetIndexes" : 
-					[
-						5,
-						6,
-						8,
-						9
+						5
 					]
 				}
 			],
@@ -209,14 +132,14 @@
 				{
 					"directoryIndex" : 5,
 					"id" : "3DObjects::@f077a888000d4da8eaa7",
-					"jsonFile" : "target-3DObjects-3611ce2cb8a34c78bf90.json",
+					"jsonFile" : "target-3DObjects-5d1329855eead8a1575f.json",
 					"name" : "3DObjects",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "GLObjects::@72c1c9d69cb92aa44416",
-					"jsonFile" : "target-GLObjects-7ef0d2a7e30c2b992680.json",
+					"jsonFile" : "target-GLObjects-c06446877c508be08fae.json",
 					"name" : "GLObjects",
 					"projectIndex" : 0
 				},
@@ -230,7 +153,7 @@
 				{
 					"directoryIndex" : 4,
 					"id" : "LML::@f38ab0484b5e1b7088a6",
-					"jsonFile" : "target-LML-4b2be21a2550f953ae70.json",
+					"jsonFile" : "target-LML-856b0fc5e4498003dcdd.json",
 					"name" : "LML",
 					"projectIndex" : 0
 				},
@@ -242,39 +165,11 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 8,
-					"id" : "docs::@aa0474f2057a315844e7",
-					"jsonFile" : "target-docs-0c0044498df99fe2a39a.json",
-					"name" : "docs",
-					"projectIndex" : 1
-				},
-				{
-					"directoryIndex" : 7,
-					"id" : "glfw::@12507ebf64a5258d241e",
-					"jsonFile" : "target-glfw-e9dcf11b97fa8c368886.json",
-					"name" : "glfw",
-					"projectIndex" : 1
-				},
-				{
 					"directoryIndex" : 0,
 					"id" : "opengl_exploration::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-opengl_exploration-4e06f2e246eb1270216e.json",
+					"jsonFile" : "target-opengl_exploration-0e126a83fec1aedc8448.json",
 					"name" : "opengl_exploration",
 					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 6,
-					"id" : "uninstall::@eb154563b92743f6cbb3",
-					"jsonFile" : "target-uninstall-41070acd2c1f18cf7cfc.json",
-					"name" : "uninstall",
-					"projectIndex" : 1
-				},
-				{
-					"directoryIndex" : 7,
-					"id" : "update_mappings::@12507ebf64a5258d241e",
-					"jsonFile" : "target-update_mappings-09ef1728c8234d33a2e0.json",
-					"name" : "update_mappings",
-					"projectIndex" : 1
 				}
 			]
 		}
@@ -282,8 +177,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/picklemustard/Documents/cpp_open_gl/build",
-		"source" : "/home/picklemustard/Documents/cpp_open_gl"
+		"build" : "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/build",
+		"source" : "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL"
 	},
 	"version" : 
 	{

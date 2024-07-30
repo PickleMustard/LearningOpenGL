@@ -1,25 +1,33 @@
-#include "3DObjects/camera.h"
-#include "vector.h"
-#include <algorithm>
 #include <eigen3/Eigen/Dense>
 #include <GL/glew.h>
 #include <cstdlib>
-//#define GLFW_DLL
-#define GL_LOG_FILE "gl.log"
-#include <GLFW/glfw3.h>
 #include <time.h>
 #include <stdarg.h>
 #include <fstream>
 #include <cassert>
+#include <GLFW/glfw3.h>
+//#include <glfw3>
 
+#include "3DObjects/camera.h"
+#include "LML/vector.h"
 #include "InitHelp/InitializeOpenGL.h"
 #include "VectorMathAndObjects/Vector2D.h"
 #include "InitHelp/PolygonInputFileParser.h"
-#include "Vector3D.h"
+#include "VectorMathAndObjects/Vector3D.h"
 #include "GLObjects/EBO.h"
 #include "GLObjects/VAO.h"
 #include "GLObjects/VBO.h"
 
+#define GL_LOG_FILE "gl.log"
+
+/*
+ * Boilerplate Log Function for glfw
+ * Reopens the log file, truncating what was written
+ *
+ * Returns:
+ * bool: True if the file could be successfully opened
+ *       False if could not be opened, program should crash
+ */
 bool restart_gl_log() {
     FILE* file = fopen(GL_LOG_FILE, "w");
     if(!file) {
@@ -35,6 +43,17 @@ bool restart_gl_log() {
     return true;
 }
 
+/*
+ * Boilerplat Log Function for glfw
+ * Prints a variable # of given messages to the log file
+ *
+ * Arguments:
+ * message: variable character pointer of messages to be output to the log file
+ *
+ * Returns:
+ * bool: Returns true if log file was opened and outputted to
+ *       Returns false if log file failed to open, should crash program
+ */
 bool gl_log(const char* message, ...) {
     va_list argptr;
     FILE* file = fopen(GL_LOG_FILE, "a");
@@ -53,6 +72,17 @@ bool gl_log(const char* message, ...) {
     return true;
 }
 
+/*
+ * Boilerplate Log Function for glfw
+ * Prints an error message to the log file
+ *
+ * Arguments:
+ * message: variable character poitner of error messages to be output to the log file
+ *
+ * Returns:
+ * bool: Returns true if log file was opened and outputted to
+ *       Returns false if log file failed to open, should crash program
+ */
 bool gl_log_err(const char* message, ...) {
     va_list argptr;
     FILE* file = fopen(GL_LOG_FILE, "a");
@@ -72,6 +102,17 @@ bool gl_log_err(const char* message, ...) {
     return true;
 }
 
+/*
+ * Debugging function to understand underlying functioning of OpenGL shader_index
+ * Given a shader_index, print the information about its information log
+ * This should give a better understanding of the shader compilation process in OpenGL
+ *
+ * Arguments:
+ * shader_index: GLuint of the shader to be examined
+ *
+ * Returns:
+ * none
+ */
 void _print_shader_info_log(GLuint shader_index){
     int max_length = 2048;
     int actual_length = 0;
