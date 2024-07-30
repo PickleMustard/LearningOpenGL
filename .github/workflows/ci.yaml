@@ -65,7 +65,12 @@ jobs:
 
       - name: Test CMake Build
         run: cd build && cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_SH=CMAKE_SH-NOTFOUND -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
+        if: os == "ubuntu-latest"
 
-      #- name: Fully build
-        #run: cmake --build ./build
+      - name: Test CMake Build Windows
+        run: cd build && cmake .. -DCMAKE_TOOLCHAIN_FILE=../../conan_toolchain.cmake -DCMAKE_SH=CMAKE_SH-NOTFOUND -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
+        if: os == "windows-latest"
+
+      - name: Fully build
+        run: cd build && cmake --build .
 
