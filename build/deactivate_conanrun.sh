@@ -1,0 +1,1 @@
+. "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/build/deactivate_conanrunenv-release-x86_64.sh"

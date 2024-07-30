@@ -2,7 +2,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-#include <GL/glew.h>
+#include <glew.h>
 
 #include "vector.h"
 namespace LML {

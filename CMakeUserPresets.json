@@ -4,6 +4,6 @@
         "conan": {}
     },
     "include": [
-        "conan_src/CMakePresets.json"
+        "build/CMakePresets.json"
     ]
 }

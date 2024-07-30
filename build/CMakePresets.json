@@ -1,0 +1,47 @@
+{
+    "version": 3,
+    "vendor": {
+        "conan": {}
+    },
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 15,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "conan-release",
+            "displayName": "'conan-release' config",
+            "description": "'conan-release' configure using 'Unix Makefiles' generator",
+            "generator": "Unix Makefiles",
+            "cacheVariables": {
+                "CMAKE_POLICY_DEFAULT_CMP0091": "NEW",
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "environment": {
+                "PATH": "/home/picklemustard/.conan2/p/cmakefaa1321642d5b/p/bin:$penv{PATH}",
+                "ACLOCAL_PATH": "$penv{ACLOCAL_PATH}:/home/picklemustard/.conan2/p/xorg-a7814e7f591fa/p/bin/share/aclocal"
+            },
+            "cmakeExecutable": "/home/picklemustard/.conan2/p/cmakefaa1321642d5b/p/bin/cmake",
+            "toolchainFile": "../../conan_toolchain.cmake",
+            "binaryDir": "/home/picklemustard/Documents/cpp_open_gl/LearningOpenGL/build/build/Release"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "conan-release",
+            "configurePreset": "conan-release",
+            "jobs": 16
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "conan-release",
+            "configurePreset": "conan-release",
+            "environment": {
+                "LD_LIBRARY_PATH": "/home/picklemustard/.conan2/p/b/libgl4cbfa60cc8543/p/lib:$penv{LD_LIBRARY_PATH}",
+                "DYLD_LIBRARY_PATH": "/home/picklemustard/.conan2/p/b/libgl4cbfa60cc8543/p/lib:$penv{DYLD_LIBRARY_PATH}"
+            }
+        }
+    ]
+}
